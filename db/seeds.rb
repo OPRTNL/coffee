@@ -26,18 +26,37 @@ user_10 = User.create!(first_name: "Charlène", last_name: "Haskis", email: "cha
 
 print "....."
 
-partner_1 = Partner.create!(name: "La Boîte à Café", address: "3 Rue de l'Abbé Rozier, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)
-partner_2 = Partner.create!(name: "Rakwé Café", address: "26 Rue René Leynaud, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)
-partner_3 = Partner.create!(name: "A Chacun Sa Tasse", address: "2 Rue du Griffon, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 2)
-partner_4 = Partner.create!(name: "Diploid", address: "18 Rue de la Platière, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 2)
-partner_5 = Partner.create!(name: "Le Perko Café", address: "8 Place du Griffon, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 2)
-partner_6 = Partner.create!(name: "Slake", address: "9 Rue de l'Ancienne Préfecture, 69002 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 3)
-partner_7 = Partner.create!(name: "Café Lisboa", address: "9 Rue des Quatre Chapeaux, 69002 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 4)
-partner_8 = Partner.create!(name: "Café Vert", address: "1 Montée des Épies, 69005 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 5)
-partner_9 = Partner.create!(name: "Café Bellecour", address: "33 Place Bellecour, 69002 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 6)
+partner_1 = Partner.new(name: "La Boîte à Café", adress: "3 Rue de l'Abbé Rozier, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)
+partner_2 = Partner.new(name: "Rakwé Café", adress: "26 Rue René Leynaud, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)
+partner_3 = Partner.new(name: "A Chacun Sa Tasse", adress: "2 Rue du Griffon, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 2)
+partner_4 = Partner.new(name: "Diploid", adress: "18 Rue de la Platière, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 2)
+partner_5 = Partner.new(name: "Le Perko Café", adress: "8 Place du Griffon, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 2)
+partner_6 = Partner.new(name: "Slake", adress: "9 Rue de l'Ancienne Préfecture, 69002 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 3)
+partner_7 = Partner.new(name: "Café Lisboa", adress: "9 Rue des Quatre Chapeaux, 69002 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 4)
+partner_8 = Partner.new(name: "Café Vert", adress: "1 Montée des Épies, 69005 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 5)
+partner_9 = Partner.new(name: "Café Bellecour", adress: "33 Place Bellecour, 69002 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 6)
 
 print "............"
 
+partner_1.user = user_1
+partner_2.user = user_2
+partner_3.user = user_3
+partner_4.user = user_4
+partner_5.user = user_5
+partner_6.user = user_6
+partner_7.user = user_7
+partner_8.user = user_8
+partner_9.user = user_9
+
+partner_1.save!
+partner_2.save!
+partner_3.save!
+partner_4.save!
+partner_5.save!
+partner_6.save!
+partner_7.save!
+partner_8.save!
+partner_9.save!
 #Order.create!(user: user_2, partner: partner_1)
 #Order.create!(user: user_2, partner: partner_7)
 #print ".................."

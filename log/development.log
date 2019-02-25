@@ -296,3 +296,544 @@ Migrating to AddPriceToProducts (20190225151030)
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (36.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1489092344723792340)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20190225113419)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (39.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190225113419_devise_create_users.rb:5
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20190225113419_devise_create_users.rb:39
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20190225113419_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190225113419"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddFieldsToUsers (20190225135013)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "users" ADD "first_name" character varying[0m
+  ↳ db/migrate/20190225135013_add_fields_to_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "last_name" character varying[0m
+  ↳ db/migrate/20190225135013_add_fields_to_users.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "phone_number" character varying[0m
+  ↳ db/migrate/20190225135013_add_fields_to_users.rb:5
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "owner" boolean[0m
+  ↳ db/migrate/20190225135013_add_fields_to_users.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_picture" character varying[0m
+  ↳ db/migrate/20190225135013_add_fields_to_users.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190225135013"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreatePartners (20190225140448)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (50.7ms)[0m  [1m[35mCREATE TABLE "partners" ("id" bigserial primary key, "name" character varying, "adress" character varying, "product" character varying, "user_id" bigint, "picture_1" character varying, "picture_2" character varying, "picture_3" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_19700d5164"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190225140448_create_partners.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_partners_on_user_id" ON "partners"  ("user_id")[0m
+  ↳ db/migrate/20190225140448_create_partners.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190225140448"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20190225144923)
+  [1m[35m (40.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "partner_id" bigint, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d71fb8d1eb"
+FOREIGN KEY ("partner_id")
+  REFERENCES "partners" ("id")
+)[0m
+  ↳ db/migrate/20190225144923_create_products.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_partner_id" ON "products"  ("partner_id")[0m
+  ↳ db/migrate/20190225144923_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190225144923"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddPriceToProducts (20190225151030)
+  [1m[35m (25.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "products" ADD "price_cents" integer DEFAULT 0 NOT NULL[0m
+  ↳ db/migrate/20190225151030_add_price_to_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190225151030"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrders (20190225155645)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (25.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "state" character varying, "teddy_sku" character varying, "amount_cents" integer DEFAULT 0 NOT NULL, "amount_currency" character varying DEFAULT 'EUR' NOT NULL, "payment" jsonb, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190225155645_create_orders.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20190225155645_create_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190225155645"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (42.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-25 16:24:12.223838"], ["updated_at", "2019-02-25 16:24:12.223838"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1489092344723792340)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPartner Load (43.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "laurent.korvisy@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "laurent.korvisy@gmail.com"], ["encrypted_password", "$2a$11$tj2rjZcINw2Maq/eb5OBQOc8UUHTj/MBDi.izuX4cLz.HaZqqOo.m"], ["created_at", "2019-02-25 16:24:19.789680"], ["updated_at", "2019-02-25 16:24:19.789680"], ["first_name", "Laurent"], ["last_name", "Korvisy"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110119/peoples/adult-beard-blur-713520.jpg"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (40.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "thomas.morin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "thomas.morin@gmail.com"], ["encrypted_password", "$2a$11$dDOkAfJRyiBb2qu3GKu7z.oN.zmZoU1qhi1ETVjtf.HqNVFOJACkC"], ["created_at", "2019-02-25 16:24:20.013948"], ["updated_at", "2019-02-25 16:24:20.013948"], ["first_name", "Thomas"], ["last_name", "Morin"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110146/peoples/adult-bald-blur-1408196.jpg"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charlotte.goyard@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "charlotte.goyard@gmail.com"], ["encrypted_password", "$2a$11$EsQajnMKXDM3A3lpyZgu8ORR9kegyz55nwraAoRlfpkfSXy.AwgWO"], ["created_at", "2019-02-25 16:24:20.195700"], ["updated_at", "2019-02-25 16:24:20.195700"], ["first_name", "Charlotte"], ["last_name", "Goyard"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110122/peoples/alone-beautiful-blurred-background-720598.jpg"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maxime.carneiro@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "maxime.carneiro@gmail.com"], ["encrypted_password", "$2a$11$yWdVI70IeDYiiFj7xRtkweSQKEFypfOKwbfMn1XKiBbgSu9PB5Hnu"], ["created_at", "2019-02-25 16:24:20.372898"], ["updated_at", "2019-02-25 16:24:20.372898"], ["first_name", "Maxime"], ["last_name", "Carneiro"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110118/peoples/adult-beach-beard-736716.jpg"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calvin.ponsot@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "calvin.ponsot@gmail.com"], ["encrypted_password", "$2a$11$zYoSxymukGsFSbUOPu2QdexDrXJwkqsc4S7/vXHH.43SuPgQwLn2K"], ["created_at", "2019-02-25 16:24:20.556612"], ["updated_at", "2019-02-25 16:24:20.556612"], ["first_name", "Calvin"], ["last_name", "Ponsot"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110118/peoples/adult-beach-beard-736716.jpg"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "remi.falcoz@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "remi.falcoz@gmail.com"], ["encrypted_password", "$2a$11$xcKdyPl4MGazmGoHff/s4.jJyfxn9IEQ8NzUR0hMerL3MqsffC6Z6"], ["created_at", "2019-02-25 16:24:20.738426"], ["updated_at", "2019-02-25 16:24:20.738426"], ["first_name", "Rémi"], ["last_name", "Falcoz"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110755/peoples/beard-casual-confidence-1878687.jpg"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chloe.rouby@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "chloe.rouby@gmail.com"], ["encrypted_password", "$2a$11$FM8JRneJA20wxmm5r6ZAZuXMrGkuyqHR5qEE7qZbJnxqY0Ff7JtlC"], ["created_at", "2019-02-25 16:24:20.914057"], ["updated_at", "2019-02-25 16:24:20.914057"], ["first_name", "Chloé"], ["last_name", "Rouby"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110104/peoples/beautiful-beauty-brown-eyes-1065084.jpg"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yasue.nobuyoki@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "yasue.nobuyoki@gmail.com"], ["encrypted_password", "$2a$11$8wEZsIDv2GRVRlPeK9j7Yef9nj3cDUrtiff72m7H1/ixOVUW50mw2"], ["created_at", "2019-02-25 16:24:21.098400"], ["updated_at", "2019-02-25 16:24:21.098400"], ["first_name", "Yasue"], ["last_name", "Nobuyoki"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110918/peoples/blurred-background-business-cafe-1125028.jpg"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "joe.wayan@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "joe.wayan@gmail.com"], ["encrypted_password", "$2a$11$uDv.oM58L3hHJvcCMeRlbO2Pl77vU6EpjEqkqHYCa2AYshI02t8gS"], ["created_at", "2019-02-25 16:24:21.319426"], ["updated_at", "2019-02-25 16:24:21.319426"], ["first_name", "Joe"], ["last_name", "Wayan"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110758/peoples/beard-expression-face-1211605.jpg"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charlene.haskis@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "charlene.haskis@gmail.com"], ["encrypted_password", "$2a$11$aYnEzLo1Rtfk6MIomdfrMu3mdmeURRAvh1o49jBQXugG03DN1NDhO"], ["created_at", "2019-02-25 16:24:21.507586"], ["updated_at", "2019-02-25 16:24:21.507586"], ["first_name", "Charlène"], ["last_name", "Haskis"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110102/peoples/blur-casual-coffee-712513.jpg"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (41.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPartner Load (0.8ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (43.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (50.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "laurent.korvisy@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "laurent.korvisy@gmail.com"], ["encrypted_password", "$2a$11$n5DFTabjzbz4.gXKzSz9oumCn9eX4lV5CQg9VeSg0XFw4swndJ77S"], ["created_at", "2019-02-25 16:25:15.534447"], ["updated_at", "2019-02-25 16:25:15.534447"], ["first_name", "Laurent"], ["last_name", "Korvisy"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110119/peoples/adult-beard-blur-713520.jpg"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "thomas.morin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "thomas.morin@gmail.com"], ["encrypted_password", "$2a$11$cG2ooAp44TLR90/.9/sfk.qgzFEn0F9IGcTO1j02YJQ8rJbzybDWm"], ["created_at", "2019-02-25 16:25:15.710776"], ["updated_at", "2019-02-25 16:25:15.710776"], ["first_name", "Thomas"], ["last_name", "Morin"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110146/peoples/adult-bald-blur-1408196.jpg"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charlotte.goyard@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "charlotte.goyard@gmail.com"], ["encrypted_password", "$2a$11$UzUnrvZFPOUliDqmBznC.eQMSKgFJB4Ce./NCkt7/nGZBTEJX0B1S"], ["created_at", "2019-02-25 16:25:15.889665"], ["updated_at", "2019-02-25 16:25:15.889665"], ["first_name", "Charlotte"], ["last_name", "Goyard"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110122/peoples/alone-beautiful-blurred-background-720598.jpg"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maxime.carneiro@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "maxime.carneiro@gmail.com"], ["encrypted_password", "$2a$11$zEtFHPs9UzsHAphu96sgpe3zdjq4781BHXPc0coT9.svK4WIfae1."], ["created_at", "2019-02-25 16:25:16.072024"], ["updated_at", "2019-02-25 16:25:16.072024"], ["first_name", "Maxime"], ["last_name", "Carneiro"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110118/peoples/adult-beach-beard-736716.jpg"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calvin.ponsot@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "calvin.ponsot@gmail.com"], ["encrypted_password", "$2a$11$hnXlf3sxbFdVf6fiYXpYXuHjEa7xELI16YU/5T7GobhrUFH1SpGxK"], ["created_at", "2019-02-25 16:25:16.253763"], ["updated_at", "2019-02-25 16:25:16.253763"], ["first_name", "Calvin"], ["last_name", "Ponsot"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110118/peoples/adult-beach-beard-736716.jpg"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "remi.falcoz@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "remi.falcoz@gmail.com"], ["encrypted_password", "$2a$11$cwD1M0V4HU2NM8d9ImDoKO4TZh9WPYAS9b7VCRUoSg6eyyY/JGdGK"], ["created_at", "2019-02-25 16:25:16.434410"], ["updated_at", "2019-02-25 16:25:16.434410"], ["first_name", "Rémi"], ["last_name", "Falcoz"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110755/peoples/beard-casual-confidence-1878687.jpg"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chloe.rouby@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "chloe.rouby@gmail.com"], ["encrypted_password", "$2a$11$qhEpwt2WRsvsgo4jmOR5OuRPJtvYsOmbyi652upNfkj/ML.OEx77W"], ["created_at", "2019-02-25 16:25:16.616185"], ["updated_at", "2019-02-25 16:25:16.616185"], ["first_name", "Chloé"], ["last_name", "Rouby"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110104/peoples/beautiful-beauty-brown-eyes-1065084.jpg"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yasue.nobuyoki@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "yasue.nobuyoki@gmail.com"], ["encrypted_password", "$2a$11$IHwCYVDD4QD5SOVYaVJKxulV8fCT5pwC89EvWgJ7sWotjSjtevULa"], ["created_at", "2019-02-25 16:25:16.795681"], ["updated_at", "2019-02-25 16:25:16.795681"], ["first_name", "Yasue"], ["last_name", "Nobuyoki"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110918/peoples/blurred-background-business-cafe-1125028.jpg"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "joe.wayan@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "joe.wayan@gmail.com"], ["encrypted_password", "$2a$11$7Jjngcv7HM7kZFUlcPVnFuXv7r.7EDysMd1IZnKL9TCCkJuw3oTIi"], ["created_at", "2019-02-25 16:25:16.972463"], ["updated_at", "2019-02-25 16:25:16.972463"], ["first_name", "Joe"], ["last_name", "Wayan"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110758/peoples/beard-expression-face-1211605.jpg"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charlene.haskis@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "charlene.haskis@gmail.com"], ["encrypted_password", "$2a$11$O/z61lpro.7BsV1z8nR9o.WNV.pEpOf3/8XMDbELvxHnFLKAhUdvW"], ["created_at", "2019-02-25 16:25:17.156274"], ["updated_at", "2019-02-25 16:25:17.156274"], ["first_name", "Charlène"], ["last_name", "Haskis"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110102/peoples/blur-casual-coffee-712513.jpg"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[35m (83.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (42.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPartner Load (0.9ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (43.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "laurent.korvisy@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "laurent.korvisy@gmail.com"], ["encrypted_password", "$2a$11$/8aqGxWNmna56CpvSsosX.NpEZddl0Me5x6z0jT3trRHKzadvASyC"], ["created_at", "2019-02-25 16:41:55.082337"], ["updated_at", "2019-02-25 16:41:55.082337"], ["first_name", "Laurent"], ["last_name", "Korvisy"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110119/peoples/adult-beard-blur-713520.jpg"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "thomas.morin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "thomas.morin@gmail.com"], ["encrypted_password", "$2a$11$m1yzKYa.xB2a4ifFv9KH3ey.hH9Vh/hYglib1MG.nAOBNPOq0KKH6"], ["created_at", "2019-02-25 16:41:55.256612"], ["updated_at", "2019-02-25 16:41:55.256612"], ["first_name", "Thomas"], ["last_name", "Morin"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110146/peoples/adult-bald-blur-1408196.jpg"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charlotte.goyard@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "charlotte.goyard@gmail.com"], ["encrypted_password", "$2a$11$GN.Zojmco9TxAjRHSx6tFezprklqSAiF5NdF315QYWSmYLpGOvLba"], ["created_at", "2019-02-25 16:41:55.439362"], ["updated_at", "2019-02-25 16:41:55.439362"], ["first_name", "Charlotte"], ["last_name", "Goyard"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110122/peoples/alone-beautiful-blurred-background-720598.jpg"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maxime.carneiro@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "maxime.carneiro@gmail.com"], ["encrypted_password", "$2a$11$hNDtunIKe3pru6LIajLE4eE1c7d9yCRM264kUjyVV2RP0LPaEmH6W"], ["created_at", "2019-02-25 16:41:55.623143"], ["updated_at", "2019-02-25 16:41:55.623143"], ["first_name", "Maxime"], ["last_name", "Carneiro"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110118/peoples/adult-beach-beard-736716.jpg"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calvin.ponsot@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "calvin.ponsot@gmail.com"], ["encrypted_password", "$2a$11$PAh7x2.DjtDpVHrlxPDnU./AyKWsakCR3L9Pmmvf/4X.fGJ2XDo2C"], ["created_at", "2019-02-25 16:41:55.798972"], ["updated_at", "2019-02-25 16:41:55.798972"], ["first_name", "Calvin"], ["last_name", "Ponsot"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110118/peoples/adult-beach-beard-736716.jpg"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "remi.falcoz@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "remi.falcoz@gmail.com"], ["encrypted_password", "$2a$11$7Y8mwOpWsUAJeZ5Eb974JeknG96Rf3sR2VGlHl8NAJKjwwl8wXKi."], ["created_at", "2019-02-25 16:41:55.984676"], ["updated_at", "2019-02-25 16:41:55.984676"], ["first_name", "Rémi"], ["last_name", "Falcoz"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110755/peoples/beard-casual-confidence-1878687.jpg"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chloe.rouby@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "chloe.rouby@gmail.com"], ["encrypted_password", "$2a$11$3gNMVpfDSOe3OYruP9rVIuyMB8o60M.ECX3pjA89fI9MT0MHQlj0C"], ["created_at", "2019-02-25 16:41:56.164102"], ["updated_at", "2019-02-25 16:41:56.164102"], ["first_name", "Chloé"], ["last_name", "Rouby"], ["phone_number", "06 08 09 09 09"], ["owner", false], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110104/peoples/beautiful-beauty-brown-eyes-1065084.jpg"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yasue.nobuyoki@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "yasue.nobuyoki@gmail.com"], ["encrypted_password", "$2a$11$ICKY2rOF2b3ajArJoNRt8OXgpUr.hJqdBPlxaUljm/rKvzY/E.7fG"], ["created_at", "2019-02-25 16:41:56.340527"], ["updated_at", "2019-02-25 16:41:56.340527"], ["first_name", "Yasue"], ["last_name", "Nobuyoki"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110918/peoples/blurred-background-business-cafe-1125028.jpg"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "joe.wayan@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "joe.wayan@gmail.com"], ["encrypted_password", "$2a$11$KGFI0.L1N1Okyn9nIZGYJOMUfeJHbJMYMGRJECcmeMgVO3PHCunuO"], ["created_at", "2019-02-25 16:41:56.524188"], ["updated_at", "2019-02-25 16:41:56.524188"], ["first_name", "Joe"], ["last_name", "Wayan"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110758/peoples/beard-expression-face-1211605.jpg"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charlene.haskis@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "phone_number", "owner", "profile_picture") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "charlene.haskis@gmail.com"], ["encrypted_password", "$2a$11$lN8/WPzCFmIrViabXMGCm.Z4.XfySfgdgXN5oLx/sYT9UlTr.STOa"], ["created_at", "2019-02-25 16:41:56.706901"], ["updated_at", "2019-02-25 16:41:56.706901"], ["first_name", "Charlène"], ["last_name", "Haskis"], ["phone_number", "06 08 09 09 09"], ["owner", true], ["profile_picture", "https://res.cloudinary.com/di985lta5/image/upload/v1551110102/peoples/blur-casual-coffee-712513.jpg"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:51
+  [1m[36mPartner Create (43.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "La Boîte à Café"], ["adress", "3 Rue de l'Abbé Rozier, 69001 Lyon"], ["user_id", 21], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.729486"], ["updated_at", "2019-02-25 16:41:56.729486"]]
+  ↳ db/seeds.rb:51
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mPartner Create (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rakwé Café"], ["adress", "26 Rue René Leynaud, 69001 Lyon"], ["user_id", 22], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.776093"], ["updated_at", "2019-02-25 16:41:56.776093"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[36mPartner Create (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "A Chacun Sa Tasse"], ["adress", "2 Rue du Griffon, 69001 Lyon"], ["user_id", 23], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.779045"], ["updated_at", "2019-02-25 16:41:56.779045"]]
+  ↳ db/seeds.rb:53
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mPartner Create (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Diploid"], ["adress", "18 Rue de la Platière, 69001 Lyon"], ["user_id", 24], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.781520"], ["updated_at", "2019-02-25 16:41:56.781520"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:55
+  [1m[36mPartner Create (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Le Perko Café"], ["adress", "8 Place du Griffon, 69001 Lyon"], ["user_id", 25], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.783958"], ["updated_at", "2019-02-25 16:41:56.783958"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mPartner Create (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Slake"], ["adress", "9 Rue de l'Ancienne Préfecture, 69002 Lyon"], ["user_id", 26], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.786461"], ["updated_at", "2019-02-25 16:41:56.786461"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:57
+  [1m[36mPartner Create (0.4ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Café Lisboa"], ["adress", "9 Rue des Quatre Chapeaux, 69002 Lyon"], ["user_id", 27], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.789000"], ["updated_at", "2019-02-25 16:41:56.789000"]]
+  ↳ db/seeds.rb:57
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:57
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mPartner Create (0.4ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Café Vert"], ["adress", "1 Montée des Épies, 69005 Lyon"], ["user_id", 28], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.791442"], ["updated_at", "2019-02-25 16:41:56.791442"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mPartner Create (0.4ms)[0m  [1m[32mINSERT INTO "partners" ("name", "adress", "user_id", "picture_1", "picture_2", "picture_3", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Café Bellecour"], ["adress", "33 Place Bellecour, 69002 Lyon"], ["user_id", 29], ["picture_1", "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg"], ["picture_2", "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg"], ["picture_3", ""], ["created_at", "2019-02-25 16:41:56.793846"], ["updated_at", "2019-02-25 16:41:56.793846"]]
+  ↳ db/seeds.rb:59
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59

@@ -1,5 +1,6 @@
 class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   def index
     @partners = Partner.all
@@ -36,6 +37,10 @@ private
 
   def set_partner
     @partner = Partner.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def partner_params

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <img src="<%= current_user.profile_picture %>" alt="profile_pic" class="picture" width="300px">
+    </div>
+  </div>
+  <div class="">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+         <h2 style="text-align:center;"><%= current_user.first_name %> <%= current_user.last_name %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 center">
+        <i class="fas fa-at"></i><%= current_user.email %>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6 center">
+        <i class="fas fa-phone"></i><%= current_user.phone_number %>
+      </div>
+    </div>
+  </div>
+  <div class="row deconnect">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+       <p style="text-align:center;"> <%= link_to "Deconnect", destroy_user_session_path, method:"delete"  %></p>
+    </div>
+  </div>
+</div>

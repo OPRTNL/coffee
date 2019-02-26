@@ -1,14 +1,24 @@
-#footer {
-  color:#c9c9c9;
-  text-align:center;
-  display:block;
-  background-color:#2a2a2a;
-  padding:30px 20px;
-  margin-top:60px;
-  -moz-box-shadow:inset 0px 3px 5px #2a2a2a;
-  -webkit-box-shadow:inset 0px 3px 5px #2a2a2a;
-  box-shadow:inset 0px 3px 5px #2a2a2a;
-  position: relative;
+.footer {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
 }
-  #footer a:link, #footer a:visited { color:#FFF; }
-  #footer a:hover { color:#c0c0c0; }
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+

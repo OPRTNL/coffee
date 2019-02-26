@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def create
+    @user = User.new(user_params)
+    @user.save!
+  end
+
   private
 
   def set_user
@@ -22,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :profile_picture)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :photo, :photo_cache)
   end
 
 end

@@ -22,6 +22,7 @@ gem 'webpacker'
 gem 'carrierwave', '~> 1.2'
 gem 'awesome_print'
 gem 'pg_search'
+gem 'cloudinary', '~> 1.9.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

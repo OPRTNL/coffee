@@ -1,0 +1,10 @@
+<h1> Partners list</h1>
+
+<ul>
+<% @partners.each do |partner| %>
+  <li> <%= partner.name %> <%= link_to "show the partner", partner_path(partner) %></li>
+<% end %>
+</ul>
+
+
+

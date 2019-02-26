@@ -1,0 +1,10 @@
+Orga
+
+js pour chargement des données dder gps
+navigator.geolocation.getCurrentPosition(function(position) {
+  do_something(position.coords.latitude, position.coords.longitude);
+});
+
+ensuite transfert au hidden form (cf simple form for)
+
+activation au du form et remontée des info via rails

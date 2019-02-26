@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_143446) do
+
+ActiveRecord::Schema.define(version: 2019_02_26_141052) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_143446) do
   create_table "orders", force: :cascade do |t|
     t.string "state"
     t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
     t.jsonb "payment"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_143446) do
 
   create_table "partners", force: :cascade do |t|
     t.string "name"
-    t.string "adress"
+    t.string "address"
     t.string "product"
     t.bigint "user_id"
     t.string "picture_1"
@@ -38,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_02_26_143446) do
     t.string "picture_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_partners_on_user_id"
   end
 

@@ -1,0 +1,30 @@
+
+  <%= simple_form_for @partner do |f| %>
+
+    <% if @partner.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @partner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="container-partner">
+  <div class="form-partner">
+    <div class="form-intro">
+      <h2>Create your partner</h2>
+    </div>
+
+    <%= f.input :name %>
+    <%= f.input :adress %>
+    <%= f.input :picture_1 %>
+    <%= f.input :picture_2 %>
+    <%= f.input :picture_3 %>
+    <%= f.submit "add as partner" %>
+  <% end %>
+  </div>
+</div>
+

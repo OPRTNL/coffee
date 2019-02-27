@@ -13,6 +13,7 @@
 <!--- End searchbar --->
 
 <!--- Start Hidden form --->
+      <div id=geoloc-form type="hidden">
         </form>
           <%= form_tag partners_path, method: :get, class: 'form-group' do %>
             <%= text_field_tag :lat,
@@ -26,6 +27,7 @@
             <%= submit_tag 'Geoloc Me', class: 'btn btn-warning' %>
           <% end %>
         </div>
+      </div>
 <!--- End Hidden form --->
   </div>
 </div>

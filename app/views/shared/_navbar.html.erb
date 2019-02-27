@@ -9,14 +9,12 @@
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
+      <!-- Link when logged in -->
       <div>
-        <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Become a Partner", partner_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
 
-      <!-- Avatar with dropdown menu -->
+      <!-- Profile with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <a class="navbar-wagon-item navbar-wagon-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>

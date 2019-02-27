@@ -4,10 +4,13 @@ const initLocation = () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   navigator.geolocation.getCurrentPosition(function(position) {
-  console.log(position.coords.latitude, position.coords.longitude);
-
+  document.getElementById('lat').value = position.coords.latitude,
+  document.getElementById('long').value = position.coords.longitude
+  ;
 });
 });
 };
+
+  // document.getElementById('gps').submit();
 
 export default initLocation ;

@@ -1,0 +1,33 @@
+.login-container {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgba(255, 255, 255, .7);
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(122, 122, 122, .7);
+  h2 {
+    line-height: 2;
+  }
+}
+
+.emailstyle {
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, .9);
+}
+
+.form-actions {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}

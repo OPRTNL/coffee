@@ -10,14 +10,16 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+        <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Link", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <a class="navbar-wagon-item navbar-wagon-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to current_user do %>

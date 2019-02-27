@@ -7,6 +7,10 @@ class PartnersController < ApplicationController
   end
 
   def show
+    @marker = {
+        lng: @partner.longitude,
+        lat: @partner.latitude
+      }
   end
 
   def new

@@ -1,9 +1,17 @@
 <h1><%= @partner.name %></h1>
 
-<p><%= @partner.adress %></p>
+<p><%= @partner.address %></p>
 
 <img src="<%= @partner.picture_1 %>">
 <!--
 <%= link_to 'remove Partner', partner_path(@partner), method: :delete %>
  -->
 <%= link_to "back to list", partners_path %>
+
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map" data-markers="<%= @marker.to_json %>"></div>
+<!-- Replace the value of the key parameter with your own API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap">
+</script>

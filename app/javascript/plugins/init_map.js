@@ -7,12 +7,40 @@
 function initMap() {
 
   const mapElement = document.getElementById('map');
-  // The location of Uluru
+
   var markerelement = JSON.parse(mapElement.dataset.markers);
-  // The map, centered at Uluru
+
+  console.log(markerelement)
+
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 19, center: markerelement});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: markerelement , map: map});}
+      document.getElementById('map'), {zoom: 12, center: markerelement[0]});
+
+  markerelement.forEach((marker) => {
+    return new google.maps.Marker({position: marker , map: map})
+  });
+
+    const bounds = new google.maps.LngLatBounds();
+    markerelement.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bound);
+
+}
 
 export default initMap ;
+
+
+
+
+// function initMap() {
+
+//   const mapElement = document.getElementById('map');
+
+//   var markers = JSON.parse(mapElement.dataset.markers);
+
+//   var map = new google.maps.Map(mapElement, {zoom: 19, center: 'paris'});
+
+//   markers.forEach((marker) => {
+//     new google.maps.Marker({position: marker , map: map})
+//   });
+// }
+
+// export default initMap();

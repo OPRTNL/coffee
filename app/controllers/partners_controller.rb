@@ -4,6 +4,12 @@ class PartnersController < ApplicationController
 
   def index
     @partners = Partner.all
+    @markers = @partners.map do |partner|
+      {
+        lng: partner.longitude,
+        lat: partner.latitude
+      }
+    end
   end
 
   def show

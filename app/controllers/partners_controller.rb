@@ -7,7 +7,8 @@ class PartnersController < ApplicationController
     @markers = @partners.map do |partner|
       {
         lng: partner.longitude,
-        lat: partner.latitude
+        lat: partner.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { partner: partner }),
       }
     end
   end

@@ -14,10 +14,23 @@ function initMap() {
   const markerBounds = new google.maps.LatLngBounds();
   const map = new google.maps.Map(mapElement)
 
+  const iconBase = 'https://cdn1.iconfinder.com/data/icons/Keyamoon-IcoMoon--limited/32/';
+
+  console.log(markerelements.infowindow)
 
   markerelements.forEach((marker) => {
-    new google.maps.Marker({position: marker , map: map})
-    markerBounds.extend(new google.maps.LatLng(marker));
+    var infowindow = new google.maps.InfoWindow({
+    content: marker.infoWindow
+    });
+
+    var the = new google.maps.Marker({position: marker , map: map, icon: iconBase + 'coffee.png'})
+
+    markerBounds.extend(new google.maps.LatLng(marker))
+
+    the.addListener('click', function() {
+    infowindow.close(map);
+    infowindow.open(map, the);
+    });
   });
 
   if (markerelements.length > 1) {

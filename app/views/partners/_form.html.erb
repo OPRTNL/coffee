@@ -15,15 +15,29 @@
 <div class="container-partner">
   <div class="form-partner">
     <div class="form-intro">
-      <h2>Create your partner</h2>
+      <h2>Create a partner</h2>
     </div>
 
     <%= f.input :name %>
     <%= f.input :address %>
-    <%= f.input :picture_1 %>
-    <%= f.input :picture_2 %>
-    <%= f.input :picture_3 %>
-    <%= f.submit "add as partner" %>
+
+    <div class="partner-form-container">
+      <div>
+        <%= cl_image_tag @partner.picture_1, height: 150, width: 150, crop: :fill %>
+        <%= f.file_field :picture_1 %>
+      </div>
+      <div>
+        <%= cl_image_tag @partner.picture_2, height: 150, width: 150, crop: :fill %>
+        <%= f.file_field :picture_2 %>
+      </div>
+      <div>
+        <%= cl_image_tag @partner.picture_2, height: 150, width: 150, crop: :fill %>
+        <%= f.file_field :picture_3 %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit "add as partner", class: "btn btn-large btn-primary" %>
+    </div>
   <% end %>
   </div>
 </div>

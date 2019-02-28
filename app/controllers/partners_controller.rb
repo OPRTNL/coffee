@@ -48,6 +48,6 @@ private
   end
 
   def partner_params
-    params.require(:partner).permit(:name, :adress, :picture_1, :picture_2, :picture_3)
+    params.require(:partner).permit(:name, :address, :picture_1, :picture_2, :picture_3)
   end
 end

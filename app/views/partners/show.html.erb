@@ -1,29 +1,39 @@
 <h1><%= @partner.name %></h1>
 
 <p><%= @partner.address %></p>
+<div>
+  <%= cl_image_tag @partner.photo, height: 300, width: 900, crop: :fill %>
+</div>
 
-<%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
+<% if @partner.user == current_user %>
+  <%= link_to 'Edit partner', edit_partner_path %>
+<% end %>
 <!--
 <%= link_to 'remove Partner', partner_path(@partner), method: :delete %>
  -->
-<%= link_to "back to list", partners_path %>
 
 
 
+
+<div>
+  <%= link_to "back to list", partners_path %>
+</div>
 
 <h2>Buy a product</h2>
 
 <ul>
-<% @products.each do |product| %>
-<li><%= product.name %> - <%= product.price %></li>
-<li>Il y a <%= product.orders.size %> café(s) actuellement suspendus à <%= @partner.name %></li>
-
-  <%= form_tag orders_path do %>
-    <%= hidden_field_tag 'teddy_id', product.id %>
-    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
-
-<% end %>
+    <% @products.each do |product| %>
+    <li>
+      <%= product.name %> - <%= product.price %>
+    </li>
+    <li>
+      Il y a <%= product.orders.size %> café(s) actuellement suspendus à <%= @partner.name %>
+    </li>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'teddy_id', product.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
 </ul>
 
 

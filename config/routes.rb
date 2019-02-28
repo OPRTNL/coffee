@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  get 'partner', to: 'pages#partner', as: :partner
+  # get 'partner', to: 'pages#partner'
 
   devise_for :users
 
   resources :partners do
-    resources :products, only: :show
+    resources :products
   end
 
   resources :orders, only: [:show, :create] do

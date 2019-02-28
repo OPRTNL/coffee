@@ -7,10 +7,10 @@ require 'json'
 # #
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
-Product.destroy_all
-Partner.destroy_all
-User.destroy_all
 Order.destroy_all
+Product.destroy_all
+User.destroy_all
+Partner.destroy_all
 
 filepath = 'db/data_coffe_founder.json'
 
@@ -40,6 +40,7 @@ beers.each do |beer|
   if beer["totalEncas"] < 1
     coffe = Partner.new(name: beer["nom"], address: beer["adresse"], latitude: beer["latitude"], longitude: beer["longitude"], picture_1: "picture")
   end
+  print "..."
   if coffe
     coffe.user = user_10
     coffe.save

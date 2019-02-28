@@ -1,16 +1,20 @@
 <!--- Start banner --->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551361477/sospenso_logo_black.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551350723/Coffee%20app/wade-austin-ellis-723407-unsplash.jpg);">
   <div class="container">
     <h1>Café suspendu</h1>
     <p>la générosité au quotidien pour une consommation solidaire</p>
-    <p>trouver un café partenaire</p>
-<!--- Start searchbar --->
-      <div class="search-button" id=nice-search-button>
-        <form action="" >
-          <input type="search" id=input-algo>
-          <i class="fa fa-search"></i>
-      </div>
-<!--- End searchbar --->
+
+<div>
+  <button type="button" class="btn btn-light">
+  <%= form_tag partners_path, method: :get do %>
+   <%= text_field_tag :aroundme,
+     params[:aroudme],
+     class: "btn btn-light",
+     placeholder: "Autour de moi..."
+   %>
+  <% end %>
+  </button>
+</div>
 
 <!--- Start Hidden form --->
       <div id=geoloc-form type="hidden">
@@ -29,6 +33,13 @@
         </div>
       </div>
 <!--- End Hidden form --->
+<!--- Start searchbar --->
+      <div class="search-button" id=nice-search-button>
+        <form action="" >
+          <input type="search" id=input-algo>
+          <i class="fa fa-search"></i>
+      </div>
+<!--- End searchbar --->
   </div>
 </div>
 <!--- End banner --->
@@ -38,7 +49,7 @@
     <div>
     <h2>Offrez un café suspendu</h2>
     <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec **Café suspendu** repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
-    <a class="btn btn-ghost" href="#">Write a story</a>
+    <a class="btn btn-ghost" href="#">j'offre un café sospenso</a>
     </div>
   </div>
 
@@ -49,7 +60,7 @@
     <div>
     <h2>Devenez café partenaire !</h2>
     <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec **Café suspendu** repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
-    <a class="btn btn-ghost" href="#">Write a story</a>
+    <a class="btn btn-ghost" href="#">comment ça marche?</a>
 
     </div>
   </div>

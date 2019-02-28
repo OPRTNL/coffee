@@ -1,1 +1,34 @@
-<%= render 'form', partner: @partner %>
+  <%= simple_form_for @partner do |f| %>
+
+    <% if @partner.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @partner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="container-partner">
+  <div class="form-partner">
+    <div class="form-intro">
+      <h2>Edit partner</h2>
+    </div>
+
+    <%= f.input :name %>
+    <%= f.input :address %>
+
+    <div class="partner-form-container">
+      <div>
+        <%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
+        <%= f.file_field :photo %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit "Edit partner", class: "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
+  </div>
+</div>

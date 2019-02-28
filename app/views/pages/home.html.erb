@@ -4,6 +4,7 @@
     <h1>Café suspendu</h1>
     <p>la générosité au quotidien pour une consommation solidaire</p>
 
+
 <div>
   <button type="button" class="btn btn-light">
   <%= form_tag partners_path, method: :get do %>
@@ -15,6 +16,19 @@
   <% end %>
   </button>
 </div>
+
+    <p>trouver un café partenaire</p>
+<!--- Start searchbar --->
+      <div class="search-button" id=nice-search-button>
+        <form action="" >
+
+          <div id="input-styling-address">
+            <input type="search" id=input-algo>
+          </div>
+
+          <i class="fa fa-search"></i>
+      </div>
+<!--- End searchbar --->
 
 <!--- Start Hidden form --->
       <div id=geoloc-form type="hidden">

@@ -3,7 +3,7 @@ class PartnersController < ApplicationController
   before_action :set_user
 
   def index
-    @partners = Partner.all
+    @partners = Partner.all#.where.not(longitude: nil, latitude: nil)
     @markers = @partners.map do |partner|
       {
         lng: partner.longitude,
@@ -32,11 +32,15 @@ class PartnersController < ApplicationController
   end
 
   def edit
+    @partner = Partner.find(params[:id])
   end
 
   def update
-    @partner.update!
-    redirect_to partner_path(@partner)
+    if @partner.update!(partner_params)
+      redirect_to partner_path(@partner)
+    else
+      render :edit
+    end
   end
 
   def destroy

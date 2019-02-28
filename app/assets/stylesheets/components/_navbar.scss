@@ -10,6 +10,10 @@
   justify-content: space-between;
 }
 
+.navbar-trans{
+  background: transparent
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -33,6 +37,10 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  a:hover, a:focus{
+    text-decoration: none;
+    color: black;
+  }
 }
 
 /* Navbar link */

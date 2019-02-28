@@ -3,7 +3,7 @@ class PartnersController < ApplicationController
   before_action :set_user
 
   def index
-    @partners = Partner.all
+    @partners = Partner.all#.where.not(longitude: nil, latitude: nil)
     @markers = @partners.map do |partner|
       {
         lng: partner.longitude,

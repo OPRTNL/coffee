@@ -17,6 +17,7 @@ class PartnersController < ApplicationController
         lng: @partner.longitude,
         lat: @partner.latitude
       }
+    @products = Product.where(partner: @partner)
   end
 
   def new

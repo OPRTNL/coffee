@@ -1,8 +1,3 @@
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'product_id', @product.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
-
 <h1>Order</h1>
 <ul>
   <li>Status: <%= @order.state %></li>

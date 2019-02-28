@@ -48,6 +48,36 @@ partner_7.user = user_7
 partner_8.user = user_8
 partner_9.user = user_9
 
+product_1 = Product.new(name: "café suspendu", price_cents: 150)
+product_2 = Product.new(name: "café suspendu", price_cents: 150)
+product_3 = Product.new(name: "café suspendu", price_cents: 150)
+product_4 = Product.new(name: "café suspendu", price_cents: 150)
+product_5 = Product.new(name: "café suspendu", price_cents: 150)
+product_6 = Product.new(name: "café suspendu", price_cents: 150)
+product_7 = Product.new(name: "café suspendu", price_cents: 150)
+product_8 = Product.new(name: "café suspendu", price_cents: 150)
+product_9 = Product.new(name: "café suspendu", price_cents: 150)
+
+product_1.partner = partner_1
+product_2.partner = partner_2
+product_3.partner = partner_3
+product_4.partner = partner_4
+product_5.partner = partner_5
+product_6.partner = partner_6
+product_7.partner = partner_7
+product_8.partner = partner_8
+product_9.partner = partner_9
+
+product_1.save!
+product_2.save!
+product_3.save!
+product_4.save!
+product_5.save!
+product_6.save!
+product_7.save!
+product_8.save!
+product_9.save!
+
 partner_1.save!
 partner_2.save!
 partner_3.save!
@@ -57,6 +87,8 @@ partner_6.save!
 partner_7.save!
 partner_8.save!
 partner_9.save!
+
+
 #Order.create!(user: user_2, partner: partner_1)
 #Order.create!(user: user_2, partner: partner_7)
 #print ".................."

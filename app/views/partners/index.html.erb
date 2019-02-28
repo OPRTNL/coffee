@@ -1,11 +1,31 @@
-<h1> Partners list</h1>
-<div id="map" data-markers="<%= @markers.to_json %>"></div>
+<div class="main-container">
 
-<ul>
-<% @partners.each do |partner| %>
-  <li> <%= partner.name %> <%= link_to "show the partner", partner_path(partner) %></li>
-<% end %>
-</ul>
+  <div class="title-wrapper">
+    <h1>Les cafés partenaires</h1>
+  </div>
+
+  <div class="map-wrapper">
+    <div id="map" data-markers="<%= @markers.to_json %>">
+    </div>
+  </div>
+
+
+  <div class= "second-container">
+    <div class="partners-list-container">
+      <div class="row">
+        <% @partners.each do |partner| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="partner-card">
+            <%= partner.name %>
+            <%= link_to "show the partner", partner_path(partner) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 

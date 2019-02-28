@@ -40,7 +40,6 @@ beers.each do |beer|
   if beer["totalEncas"] < 1
     coffe = Partner.new(name: beer["nom"], address: beer["adresse"], latitude: beer["latitude"], longitude: beer["longitude"], picture_1: "picture")
   end
-  ap coffe
   if coffe
     coffe.user = user_10
     coffe.save

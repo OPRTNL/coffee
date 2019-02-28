@@ -39,7 +39,7 @@
 
 <h3>My Partner</h3>
 <!--The div element for the map -->
-<div id="map" data-markers="<%= @marker.to_json %>"></div>
+<div id="map" data-markers="<%= [@marker].to_json %>"></div>
 <!-- Replace the value of the key parameter with your own API key. -->
 
 <% content_for :after_js do %>

@@ -8,20 +8,24 @@ function initMap() {
 
   const mapElement = document.getElementById('map');
 
-  var markerelement = JSON.parse(mapElement.dataset.markers);
+   if (mapElement == null) { return; }
 
-  console.log(markerelement)
+  const markerelements = JSON.parse(mapElement.dataset.markers);
+  const markerBounds = new google.maps.LatLngBounds();
+  const map = new google.maps.Map(mapElement)
 
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 12, center: markerelement[0]});
 
-  markerelement.forEach((marker) => {
-    return new google.maps.Marker({position: marker , map: map})
+  markerelements.forEach((marker) => {
+    new google.maps.Marker({position: marker , map: map})
+    markerBounds.extend(new google.maps.LatLng(marker));
   });
 
-    const bounds = new google.maps.LngLatBounds();
-    markerelement.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    map.fitBounds(bound);
+  if (markerelements.length > 1) {
+    map.fitBounds(markerBounds);
+  } else {
+    map.setCenter(markerelements[0])
+    map.setZoom(16)
+  }
 
 }
 

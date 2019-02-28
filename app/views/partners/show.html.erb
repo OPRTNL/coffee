@@ -2,7 +2,7 @@
 
 <p><%= @partner.address %></p>
 
-<img src="<%= @partner.picture_1 %>">
+<%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
 <!--
 <%= link_to 'remove Partner', partner_path(@partner), method: :delete %>
  -->

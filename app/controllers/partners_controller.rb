@@ -32,11 +32,15 @@ class PartnersController < ApplicationController
   end
 
   def edit
+    @partner = Partner.find(params[:id])
   end
 
   def update
-    @partner.update!
-    redirect_to partner_path(@partner)
+    if @partner.update!(partner_params)
+      redirect_to partner_path(@partner)
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,13 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#Order.destroy_all
+require 'json'
+
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
+Product.destroy_all
 Partner.destroy_all
 User.destroy_all
+Order.destroy_all
+
+filepath = 'db/data_coffe_founder.json'
+
+coffees = File.read(filepath)
+
+beers = JSON.parse(coffees)["resultat"]
+
 
 puts "Seeding"
 print "..."
@@ -25,6 +35,17 @@ user_9 = User.create!(first_name: "Joe", last_name: "Wayan", email: "joe.wayan@g
 user_10 = User.create!(first_name: "Charlène", last_name: "Haskis", email: "charlene.haskis@gmail.com", owner: true, password: "lknd2kd!", phone_number:"06 08 09 09 09", profile_picture:"https://res.cloudinary.com/di985lta5/image/upload/v1551110102/peoples/blur-casual-coffee-712513.jpg")
 
 print "....."
+
+beers.each do |beer|
+  if beer["totalEncas"] < 1
+    coffe = Partner.new(name: beer["nom"], address: beer["adresse"], latitude: beer["latitude"], longitude: beer["longitude"], picture_1: "picture")
+  end
+  ap coffe
+  if coffe
+    coffe.user = user_10
+    coffe.save
+  end
+end
 
 partner_1 = Partner.new(name: "La Boîte à Café", address: "3 Rue de l'Abbé Rozier, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)
 partner_2 = Partner.new(name: "Rakwé Café", address: "26 Rue René Leynaud, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)

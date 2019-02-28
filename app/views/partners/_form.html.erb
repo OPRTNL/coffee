@@ -23,16 +23,8 @@
 
     <div class="partner-form-container">
       <div>
-        <%= cl_image_tag @partner.picture_1, height: 150, width: 150, crop: :fill %>
-        <%= f.file_field :picture_1 %>
-      </div>
-      <div>
-        <%= cl_image_tag @partner.picture_2, height: 150, width: 150, crop: :fill %>
-        <%= f.file_field :picture_2 %>
-      </div>
-      <div>
-        <%= cl_image_tag @partner.picture_2, height: 150, width: 150, crop: :fill %>
-        <%= f.file_field :picture_3 %>
+        <%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
+        <%= f.file_field :photo %>
       </div>
     </div>
     <div>

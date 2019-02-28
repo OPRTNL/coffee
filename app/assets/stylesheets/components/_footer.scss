@@ -5,15 +5,14 @@
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
 }
+
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: #45251B;
-  opacity: 0.15;
+  color: #171613;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
@@ -24,3 +23,11 @@
   color: #45251B;
 }
 
+.footer-copyright{
+   font-size : 16px;
+   color: #171613;
+   a{
+    text-decoration: none;
+    color: #705946
+   }
+}

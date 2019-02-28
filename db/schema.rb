@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_134202) do
   create_table "orders", force: :cascade do |t|
     t.string "state"
     t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
     t.jsonb "payment"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -40,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_02_28_134202) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.json "photos"
     t.string "photo"
     t.string "description"
     t.index ["user_id"], name: "index_partners_on_user_id"

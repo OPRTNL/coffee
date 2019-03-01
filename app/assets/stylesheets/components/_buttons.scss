@@ -14,3 +14,17 @@
   border: 1px solid #45251B;
   font-weight: lighter;
 }
+
+.btn-warning{
+  background-color: #45251B;
+  border: 1px solid #45251B;
+  font-weight: lighter;
+}
+
+.btn-warning:hover{
+  background-color: #45251B;
+  border: 1px solid #45251B;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  font-weight: lighter;
+}

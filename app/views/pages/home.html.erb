@@ -3,23 +3,17 @@
   <div class="container">
     <h1>Sospenso</h1>
     <p>la générosité au quotidien pour une consommation solidaire</p>
+    <div >
+      <%= form_tag partners_path, method: :get do %>
+        <div id="input-styling-address">
+          <input type="search" id=input-algo name="city">
+        </div>
+        <%= submit_tag 'Chercher', class: 'btn btn-warning'%>
+      <% end %>
 
-
-<div>
-  <button type="button" class="btn btn-light">
-  <%= form_tag partners_path, method: :get do %>
-   <%= text_field_tag :aroundme,
-     params[:aroudme],
-     class: "btn btn-light",
-     placeholder: "Autour de moi..."
-   %>
-  <% end %>
-  </button>
-</div>
-
-    <p>trouver un café partenaire</p>
+    </div>
 <!--- Start searchbar --->
-      <div class="search-button" id=nice-search-button>
+   <!--    <div class="search-button" id=nice-search-button>
         <form action="" >
 
           <div id="input-styling-address">
@@ -27,7 +21,7 @@
           </div>
 
           <i class="fa fa-search"></i>
-      </div>
+      </div> -->
 <!--- End searchbar --->
 
 <!--- Start Hidden form --->
@@ -42,9 +36,11 @@
               params[:long],
               class: "form-control"
             %>
-            <%= submit_tag 'Geoloc Me', class: 'btn btn-warning' %>
           <% end %>
         </div>
+      </div>
+      <div class="container" id=geoloc-me-button>
+        <%= submit_tag 'Voir les cafés autour de moi', class: 'btn btn-warning', id: 'geolocation-submit' %>
       </div>
 <!--- End Hidden form --->
   </div>
@@ -52,10 +48,11 @@
 <!--- End banner --->
 
 <!--- Start about coffee --->
-  <div class="container">
+  <div class="container" id=call-to-action>
     <div>
     <h2>Offrez un café suspendu</h2>
-    <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec **Café suspendu** repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
+    <p>Apportez un peu de réconfort à une personne dans le besoin et participez à la vie de votre quartier. Avec Sospenso repérez autour de vous la liste de tous les établissements qui ont adopté le système. Un geste solidaire pour 2€ chez l'ensemble de nos partenaires.
+    </p>
     <a class="btn btn-ghost" href="#">j'offre un café sospenso</a>
     </div>
   </div>
@@ -63,10 +60,10 @@
 <!--- End about coffee --->
 
 <!--- Start become partner --->
-  <div class="container">
+  <div class="container" id=become-partner>
     <div>
-    <h2>Devenez café partenaire !</h2>
-    <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec **Café suspendu** repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
+    <h2>Devenez café partenaire</h2>
+    <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec Sospenso repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
     <a class="btn btn-ghost" href="#">comment ça marche?</a>
 
     </div>

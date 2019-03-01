@@ -1,16 +1,22 @@
 
 const initLocation = () => {
-  document.addEventListener("DOMContentLoaded", () => {
-    const lat = document.getElementById('lat');
-    const long = document.getElementById('long');
+  const formGeolocation = document.querySelector('#geoloc-form form');
 
-    if (lat == null) { return; }
+  if (formGeolocation) {
+    document.querySelector('#geolocation-submit').addEventListener("click", () => {
+      const lat = document.getElementById('lat');
+      const long = document.getElementById('long');
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-      document.getElementById('lat').value = position.coords.latitude,
-      document.getElementById('long').value = position.coords.longitude
+      if (lat == null) { return; }
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+        lat.value = position.coords.latitude;
+        long.value = position.coords.longitude;
+
+        formGeolocation.submit();
+      })
     })
-  })
+  }
 }
 
 export default initLocation ;

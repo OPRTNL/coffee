@@ -1,7 +1,7 @@
 <!--- Start banner --->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551350723/Coffee%20app/wade-austin-ellis-723407-unsplash.jpg);">
   <div class="container">
-    <h1>Sospenso</h1>
+    <h1>Sospeso</h1>
     <p>la générosité au quotidien pour une consommation solidaire</p>
     <div >
       <%= form_tag partners_path, method: :get do %>
@@ -51,9 +51,9 @@
   <div class="container" id=call-to-action>
     <div>
     <h2>Offrez un café suspendu</h2>
-    <p>Apportez un peu de réconfort à une personne dans le besoin et participez à la vie de votre quartier. Avec Sospenso repérez autour de vous la liste de tous les établissements qui ont adopté le système. Un geste solidaire pour 2€ chez l'ensemble de nos partenaires.
+    <p>Apportez un peu de réconfort à une personne dans le besoin et participez à la vie de votre quartier. Avec Sospeso repérez autour de vous la liste de tous les établissements qui ont adopté le système. Un geste solidaire pour 2€ chez l'ensemble de nos partenaires.
     </p>
-    <a class="btn btn-ghost" href="#">j'offre un café sospenso</a>
+    <%= link_to "j'offre un café Sospeso",  partners_path, :class=>"btn btn-ghost" %>
     </div>
   </div>
 
@@ -63,9 +63,8 @@
   <div class="container" id=become-partner>
     <div>
     <h2>Devenez café partenaire</h2>
-    <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec Sospenso repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
-    <a class="btn btn-ghost" href="#">comment ça marche?</a>
-
+    <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec Sospeso repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
+    <%= link_to "Comment ça marche",  new_partner_path, :class=>"btn btn-ghost" %>
     </div>
   </div>
 <!--- End become partner --->

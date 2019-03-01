@@ -2,7 +2,7 @@
 
 <p><%= @partner.address %></p>
 <div>
-  <%= cl_image_tag @partner.photo, height: 300, width: 900, crop: :fill %>
+  <%= photo_for(@partner) %>
 </div>
 
 <% if @partner.user == current_user %>

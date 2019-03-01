@@ -36,14 +36,19 @@ user_10 = User.create!(first_name: "Charlène", last_name: "Haskis", email: "cha
 
 print "....."
 
+p = 1000
+
 beers.each do |beer|
   if beer["totalEncas"] < 1
     coffe = Partner.new(name: beer["nom"], address: beer["adresse"], latitude: beer["latitude"], longitude: beer["longitude"], picture_1: "picture")
+    product = Product.new(name: "café suspendu", price_cents: 150)
+    product.partner = coffe
   end
   print "..."
   if coffe
     coffe.user = user_10
     coffe.save
+    product.save
   end
 end
 

@@ -1,8 +1,8 @@
-<h1>Purchase of product <%= @order.product_id %></h1>
+<h1>Offrir un <%= @order.product.name %> chez <%= @order.product.partner.name %></h1>
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+      <span>Prix solidaire: <%= humanized_money_with_symbol(@order.amount) %></span>
     </label>
   </article>
 

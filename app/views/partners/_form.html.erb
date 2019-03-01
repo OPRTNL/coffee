@@ -1,4 +1,3 @@
-
   <%= simple_form_for @partner do |f| %>
 
     <% if @partner.errors.any? %>
@@ -15,22 +14,34 @@
 <div class="container-partner">
   <div class="form-partner">
     <div class="form-intro">
-      <h2>Create a partner</h2>
-    </div>
 
-    <%= f.input :name %>
-    <%= f.input :address %>
+<!--- Start banner --->
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);">
+        <div class="container">
+          <h1>Devenez café partenaire</h1>
+          <p>rejoingnez le mouvement Sospeso</p>
+        </div>
+      </div>
+<!--- End banner --->
 
-    <div class="partner-form-container">
-      <div>
-        <%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
-        <%= f.file_field :photo %>
+<!--- Start form --->
+        <div class="container">
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <div class="partner-form-container">
+            <div>
+            <p>Photo de profil de votre café</p>
+            <%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
+            <%= f.file_field :photo %>
+            </div>
+          </div>
+
+<!--- End form --->
+          <div>
+          <%= f.submit "Rejoindre la communauté des cafés solidaires", class: "btn-ghost" %>
+          </div>
+        <% end %>
       </div>
     </div>
-    <div>
-      <%= f.submit "add as partner", class: "btn btn-large btn-primary" %>
-    </div>
-  <% end %>
   </div>
 </div>
-

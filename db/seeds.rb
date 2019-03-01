@@ -9,8 +9,8 @@ require 'json'
 # #   Character.create(name: 'Luke', movie: movies.first)
 Order.destroy_all
 Product.destroy_all
-User.destroy_all
 Partner.destroy_all
+User.destroy_all
 
 filepath = 'db/data_coffe_founder.json'
 

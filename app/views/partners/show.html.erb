@@ -1,9 +1,13 @@
-<h1><%= @partner.name %></h1>
 
-<p><%= @partner.address %></p>
-<div>
-  <%= photo_for(@partner) %>
-</div>
+<!--- Start banner --->
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= photo_path_for(@partner)%>)">
+        <div class="container">
+          <h1><%= @partner.name %></h1>
+          <p><%= @partner.address %></p>
+        </div>
+      </div>
+<!--- End banner --->
+
 
 <% if @partner.user == current_user %>
   <%= link_to 'Modifier', edit_partner_path %>
@@ -11,7 +15,6 @@
 <!--
 <%= link_to 'Supprimer le café partenaire', partner_path(@partner), method: :delete %>
  -->
-
 
 
 

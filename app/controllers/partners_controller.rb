@@ -3,7 +3,11 @@ class PartnersController < ApplicationController
   before_action :set_user
 
   def index
-    @partners = Partner.all#.where.not(longitude: nil, latitude: nil)
+    if params[:aroundme].present?
+      @partners = Partner.near(params[:aroundme], 15)
+      @partners = Partner.all if @partners.empty?
+    end
+
     @markers = @partners.map do |partner|
       {
         lng: partner.longitude,

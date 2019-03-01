@@ -1,5 +1,5 @@
 
-// import googleMaps from '@google/maps'
+import googleMaps from '@google/maps'
 // const google = googleMaps.createClient({
 //   key: 'AIzaSyB1Pe9CbiCnb7zgQymje9M6GgHWgXzCq-4'
 // });
@@ -16,7 +16,7 @@ function initMap() {
 
   const iconBase = 'https://cdn1.iconfinder.com/data/icons/Keyamoon-IcoMoon--limited/32/';
 
-  console.log(markerelements.infowindow)
+
 
   markerelements.forEach((marker) => {
     var infowindow = new google.maps.InfoWindow({
@@ -41,6 +41,7 @@ function initMap() {
   }
 
 }
+
 
 export default initMap ;
 

@@ -3,9 +3,10 @@ class PartnersController < ApplicationController
   before_action :set_user
 
   def index
-    if params[:aroundme].present?
-      @partners = Partner.near(params[:aroundme], 15)
-      @partners = Partner.all if @partners.empty?
+    if params[:city].present?
+      @partners = Partner.near(params[:city], 15)
+    else
+      @partners = Partner.all
     end
 
     @markers = @partners.map do |partner|

@@ -16,12 +16,12 @@
 <%= link_to 'Supprimer le café partenaire', partner_path(@partner), method: :delete %>
  -->
 
-
-
+<div class="container" id=partner-detail>
 <div>
-  <%= link_to "Retour à la liste", partners_path %>
+  <br>
+  <%= link_to "Retour à la liste", partners_path, :class=>"btn btn-ghost" %>
 </div>
-
+<br>
 <h2>Offrir un café</h2>
 
 <ul>
@@ -34,10 +34,12 @@
     </li>
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'teddy_id', product.id %>
+        <br>
         <%= submit_tag 'Offrir un café', class: 'btn-ghost' %>
       <% end %>
     <% end %>
 </ul>
+</div>
 
 
 <h3>Mon café partenaire</h3>

@@ -1,6 +1,19 @@
-<h1>Order</h1>
-<ul>
-  <li>Status: <%= @order.state %></li>
-  <li>Item: <%= @order.product_id %></li>
-  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
-<ul>
+<div class="order-container">
+  <div class="thank-you-img">
+  </div>
+
+  <div class="thank-you-description">
+    <h1>Merci pour votre engagement !</h1>
+  </div>
+  <div class="thank-you-btn">
+    <a><%= link_to 'Retour'.html_safe, partners_path %></a>
+  </div>
+  <!--   <ul>
+      <li>Status: <%= @order.state %></li>
+      <li>Item: <%= @order.product_id %></li>
+      <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+    <ul> -->
+</div>
+
+
+

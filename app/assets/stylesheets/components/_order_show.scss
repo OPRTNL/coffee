@@ -1,0 +1,22 @@
+.order-container{
+  height: 80vh;
+}
+
+.thank-you-img {
+  height : 60vh;
+  background-image: url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551454817/Coffee/undraw_super_thank_you_obwk.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30%;
+}
+
+.thank-you-description {
+  text-align: center;
+  h1 {
+    color: #171613;
+  }
+}
+
+.thank-you-btn {
+  text-align: center;
+}

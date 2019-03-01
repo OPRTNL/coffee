@@ -3,7 +3,7 @@
   margin: 0 auto;
   h1 {
     font-size:70px;
-    color: #00C2B6;
+    color: #705946;
   }
 }
 
@@ -20,28 +20,28 @@
 .partner-card {
   background-color: white;
   box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
-  height: 220px;
+  height: 250px;
   margin-top: 30px;
   position: relative;
 }
 
 .partner-img {
-  height: 120px;
+  height: 145px;
   background-image: url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551428112/Coffee/la-devanture-de-la-brasserie.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 1px solid #00C2B6;
+  border-bottom: 1px solid #705946;
 }
 
 .partner-name {
   z-index:2;
   position: absolute;
   left: 8px;
-  top: 67px;
+  top: 85px;
   h3 {
-    color: #00C2B6;
-    border-top: 3px solid #00C2B6;
+    color: #705946;
+    border-top: 3px solid #705946;
     font-size: 26px;
     background-color: white;
     padding-left: 12px;
@@ -58,12 +58,12 @@
   right: 3px;
   p{
     font-size: 12px;
-    color: #afafaf;
+    color: #171613;
     text-align: right;
     i{
       margin-left: 5px;
       margin-right: 5px;
-      color: #afafaf;
+      color: #171613;
       font-size: 16px;
     }
   }
@@ -85,7 +85,7 @@
   height: 58px;
   width: 58px;
   padding-top: 10px;
-  background-color: #f2f2f2;
+  background-color: rgba(23, 22, 19, .1);
   border-radius: 50%;
   // border: 1px solid #00C2B6;
 }
@@ -95,7 +95,7 @@
     font-size: 62px;
     font-family: 'Roboto Slab', serif;
     font-weight: 700;
-    color: #00C2B6;
+    color: #705946;
   }
 }
 
@@ -103,7 +103,7 @@
   i{
     font-size: 30px;
     margin-left: 10px;
-    color: #00C2B6;
+    color: #705946
   }
 }
 
@@ -114,7 +114,7 @@
   height: 35px;
   width: 35px;
   padding-top: 10px;
-  background-color: #f2f2f2;
+  background-color: rgba(23, 22, 19, .1);
   border-radius: 50%;
   margin-left: 50px;
   // border: 1px solid #00C2B6;
@@ -125,7 +125,7 @@
     font-size: 35px;
     font-family: 'Roboto Slab', serif;
     font-weight: 400;
-    color: #969696;
+    color: #171613;
   }
 }
 
@@ -141,14 +141,15 @@
 .more-text {
   p {
     font-size: 16px;
-    color: #969696;
+    color: #171613;
   }
 }
+
 .partner-btn {
   position: absolute;
   right: 6px;
   top: 6px;
-  background-color: #00C2B6;
+  background-color: #705946;
   box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
   border-radius: 50%;
   color: white;
@@ -158,8 +159,8 @@
   padding-top: 1px;
   padding-bottom: 1px;
   &:hover {
-    color: #00C2B6;
-    border: 1px solid #00C2B6;
+    color: #705946;
+    border: 1px solid #705946;
     box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
     background-color: white;
     padding-right: 15px;

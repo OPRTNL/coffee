@@ -15,16 +15,18 @@
       <div class="row">
         <% @partners.each do |partner| %>
           <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="partner-card">
-              <div class="partner-img">
-              </div>
-              <div class="partner-name">
-                <h3><%= partner.name %></h3>
-              </div>
-              <div class="partner-address">
-                <p><%= partner.address %><i class="fas fa-map-marker-alt"></i></p>
-              </div>
-              <div class="coffee-status">
+
+            <%= link_to partner_path(partner) do %>
+              <div class="partner-card">
+                <div class="partner-img">
+                </div>
+                <div class="partner-name">
+                  <h3><%= partner.name %></h3>
+                </div>
+                <div class="partner-address">
+                  <p><%= partner.address %><i class="fas fa-map-marker-alt"></i></p>
+                </div>
+                <div class="coffee-status">
 
                 <div class="coffee-pending">
                   <div class="pending">
@@ -50,6 +52,7 @@
               <div>
                 <%= link_to '<i class="fas fa-search"></i>'.html_safe, partner_path(partner),{ :class=>"partner-btn" } %>
               </div>
+            <% end %>
             </div>
           </div>
         <% end %>

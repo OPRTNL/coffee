@@ -19,7 +19,7 @@
   <%= link_to "back to list", partners_path %>
 </div>
 
-<h2>Buy a product</h2>
+<h2>Offrir un café</h2>
 
 <ul>
     <% @products.each do |product| %>
@@ -27,7 +27,7 @@
       <%= product.name %> - <%= product.price %>
     </li>
     <li>
-      Il y a <%= product.orders.size %> café(s) actuellement suspendus à <%= @partner.name %>
+      Il y a <%= product.orders.size %> café(s) actuellement suspendu(s) à <%= @partner.name %>
     </li>
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'teddy_id', product.id %>
@@ -37,7 +37,7 @@
 </ul>
 
 
-<h3>My Partner</h3>
+<h3>Mon café partenaire</h3>
 <!--The div element for the map -->
 <div id="map" data-markers="<%= [@marker].to_json %>"></div>
 <!-- Replace the value of the key parameter with your own API key. -->

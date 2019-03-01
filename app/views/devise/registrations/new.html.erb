@@ -11,22 +11,22 @@
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "first_name", class: "emailstyle" }%>
+                    input_html: { autocomplete: "Prénom", class: "emailstyle" }%>
         <%= f.input :last_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "last_name", class: "emailstyle" }%>
+                    input_html: { autocomplete: "Nom", class: "emailstyle" }%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email", class: "emailstyle" }%>
+                    input_html: { autocomplete: "E-mail", class: "emailstyle" }%>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password", class: "emailstyle" } %>
+                    input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
         <%= f.input :password_confirmation,
                     required: true,
-                    input_html: { autocomplete: "new-password", class: "emailstyle" } %>
+                    input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
       </div>
 
       <div class="form-actions">

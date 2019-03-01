@@ -1,14 +1,66 @@
-<h1> Partners list</h1>
-<div id="map" data-markers="<%= @markers.to_json %>"></div>
+<div class="main-container">
 
-<ul>
-<% @partners.each do |partner| %>
-  <li> <%= partner.name %> <%= link_to "show the partner", partner_path(partner) %></li>
-<% end %>
-</ul>
+  <div class="title-wrapper">
+    <h1>Les cafés partenaires</h1>
+  </div>
+
+  <div class="map-wrapper">
+    <div id="map" data-markers="<%= @markers.to_json %>">
+    </div>
+  </div>
 
 
+  <div class= "second-container">
+    <div class="partners-list-container">
+      <div class="row">
+        <% @partners.each do |partner| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
 
+            <%= link_to partner_path(partner) do %>
+              <div class="partner-card">
+                <div class="partner-img">
+                </div>
+                <div class="partner-name">
+                  <h3><%= partner.name %></h3>
+                </div>
+                <div class="partner-address">
+                  <p><%= partner.address %><i class="fas fa-map-marker-alt"></i></p>
+                </div>
+                <div class="coffee-status">
+
+                <div class="coffee-pending">
+                  <div class="pending">
+                    <p>7</p>
+                  </div>
+                  <div class="pending-icon">
+                    <i class="fas fa-mug-hot"></i>
+                  </div>
+                </div>
+
+                <div class="coffee-served">
+                  <div class="served">
+                    <p>45</p>
+                  </div>
+                </div>
+
+                <div class="more-served">
+                  <div class="more-text">
+                    <p>cafés déjà servis ici !</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <%= link_to '<i class="fas fa-search"></i>'.html_safe, partner_path(partner),{ :class=>"partner-btn" } %>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <% content_for :after_js do %>
    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">

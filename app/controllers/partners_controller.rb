@@ -5,6 +5,8 @@ class PartnersController < ApplicationController
   def index
     if params[:city].present?
       @partners = Partner.near(params[:city], 15)
+    elsif params[:lat].present?
+      @partners = Partner.near([params[:lat],params[:long]], 15)
     else
       @partners = Partner.all
     end

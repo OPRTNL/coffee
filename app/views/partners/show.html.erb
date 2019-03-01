@@ -6,17 +6,17 @@
 </div>
 
 <% if @partner.user == current_user %>
-  <%= link_to 'Edit partner', edit_partner_path %>
+  <%= link_to 'Modifier', edit_partner_path %>
 <% end %>
 <!--
-<%= link_to 'remove Partner', partner_path(@partner), method: :delete %>
+<%= link_to 'Supprimer le café partenaire', partner_path(@partner), method: :delete %>
  -->
 
 
 
 
 <div>
-  <%= link_to "back to list", partners_path %>
+  <%= link_to "Retour à la liste", partners_path %>
 </div>
 
 <h2>Offrir un café</h2>
@@ -31,7 +31,7 @@
     </li>
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'teddy_id', product.id %>
-        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+        <%= submit_tag 'Offrir un café', class: 'btn-ghost' %>
       <% end %>
     <% end %>
 </ul>

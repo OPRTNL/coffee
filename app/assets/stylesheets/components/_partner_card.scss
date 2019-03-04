@@ -1,11 +1,12 @@
 .title-wrapper {
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  width: 100%;
   margin: 0 auto;
   h1 {
     font-size:48px;
     color: #705946;
-    text-align:left;
+    text-align:center;
     font-weight: 700;
   }
 }
@@ -18,8 +19,8 @@
 .map-container {
   width: 800px;
   height: 100vh;
-  margin-top: 119px;
-  padding-right: 10px;
+  // margin-top: 119px;
+  // padding-right: 10px;
   position: sticky;
   top: 10px;
 }
@@ -168,10 +169,10 @@
 }
 
 #show {
-  height: 75vh;
+  height: 80vh;
   background-color: #f2f2f2;
   box-shadow: 0px 0px 8px rgba(96, 96, 96, .5);
-  margin-top: 119px;
+  // margin-top: 119px;
   margin-left: 15px;
   position: sticky;
   top: 10px;
@@ -200,7 +201,7 @@
 .info-partner-name {
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: -15px;
+  margin-top: -5px;
   h3 {
     color: #705946;
   }

@@ -1,36 +1,55 @@
 .title-wrapper {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  width: 95%;
+  padding-top: 10px;
+  padding-bottom: 20px;
   margin: 0 auto;
   h1 {
-    font-size:70px;
+    font-size:48px;
     color: #705946;
-    text-align:center;
+    text-align:left;
+    font-weight: 700;
   }
 }
 
-.map-wrapper {
-  width: 95%;
-  margin: 0 auto;
-  margin-top: 50px;
+.second-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.second-container {
-  padding : 35px;
+.map-container {
+  width: 800px;
+  height: 100vh;
+  margin-top: 119px;
+  padding-right: 10px;
+  position: sticky;
+  top: 10px;
+}
+
+.map-wrapper {
+  width: 100%;
+  position: absolute;
+}
+
+#map {
+  height: 97vh;
+  width: 97%;
+}
+
+.partners-list-container {
+  width: 800px;
+  padding-left: 15px;
 }
 
 .partner-card {
   background-color: white;
   box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
   height: 250px;
-  margin-top: 30px;
+  margin-bottom: 20px;
   position: relative;
 }
 
 .partner-img {
-  height: 175px;
-  background-image: url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551449644/Coffee/sospenso-partners-defaultpic.jpg);
+  height: 165px;
+  background: linear-gradient(to left, rgba(71, 71, 71, .1), rgba(71, 71, 71, .3)), url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551449644/Coffee/sospenso-partners-defaultpic.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,11 +60,11 @@
   z-index:2;
   position: absolute;
   left: 8px;
-  bottom: 60px;
+  bottom: 70px;
   h3 {
     color: #705946;
     border-top: 3px solid #705946;
-    font-size: 26px;
+    font-size: 22px;
     background-color: white;
     padding-left: 12px;
     padding-right: 12px;
@@ -56,9 +75,28 @@
  }
 
 .partner-address {
+  z-index: 4;
+  position: absolute;
+  top: 10px;
+  left:0px;
+  p{
+    font-size: 9px;
+    color: white;
+    text-align: left;
+    padding-right: 20px;
+    i{
+      margin-left: 5px;
+      margin-right: 5px;
+      color: white;
+      font-size: 12px;
+    }
+  }
+}
+
+.coffee-served {
   position: absolute;
   bottom: -10px;
-  right: 3px;
+  right:-2px;
   p{
     font-size: 12px;
     color: #171613;
@@ -67,15 +105,15 @@
       margin-left: 5px;
       margin-right: 5px;
       color: #171613;
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 }
 
 .coffee-status {
   height: 65px;
-  margin-top: 2px;
-  padding-left: 20px;
+  margin-top: 4px;
+  padding-left: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,67 +122,24 @@
 .coffee-pending {
   display: flex;
   align-items: center;
-  flex-direction:row;
-  height: 42px;
-  width: 42px;
+  justify-content:center;
+  flex-direction: row;
+  height: 50px;
+  width: 50px;
   padding-top: 10px;
-  background-color: rgba(23, 22, 19, .1);
+  background-color: rgb(112, 89, 70);
   border-radius: 50%;
+  box-shadow: 1px 1px 2px rgba(96, 96, 96, .5);
   // border: 1px solid #00C2B6;
 }
 
 .pending {
   p {
-    font-size: 50px;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 700;
-    color: #705946;
-  }
-}
-
-.pending-icon {
-  i{
-    font-size: 20px;
-    color: #705946
-  }
-}
-
-.coffee-served {
-  display: flex;
-  align-items: center;
-  flex-direction:row;
-  height: 25px;
-  width: 25px;
-  padding-top: 10px;
-  background-color: rgba(23, 22, 19, .1);
-  border-radius: 50%;
-  margin-left: 50px;
-  // border: 1px solid #00C2B6;
-}
-
-.served {
-  p {
-    font-size: 30px;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 400;
-    color: #171613;
-  }
-}
-
-.more-served {
-  display: flex;
-  align-items: center;
-  flex-direction:row;
-  padding-top: 10px;
-  margin-left: 5px;
-  // border: 1px solid #00C2B6;
-}
-
-.more-text {
-  p {
-    font-size: 16px;
-    color: #171613;
-    margin-left: 5px;
+    font-size: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+    margin-right: 2px;
   }
 }
 
@@ -171,3 +166,107 @@
     border-radius: 40px;
   }
 }
+
+#show {
+  height: 75vh;
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 8px rgba(96, 96, 96, .5);
+  margin-top: 119px;
+  margin-left: 15px;
+  position: sticky;
+  top: 10px;
+  width:0px;
+  transition: width .4s ease;
+  // 500px
+}
+
+#show.extends {
+  width: 500px;
+}
+
+.info-partner {
+
+}
+
+.info-partner-img {
+  height: 165px;
+  background: linear-gradient(to left, rgba(71, 71, 71, .1), rgba(71, 71, 71, .3)), url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551449644/Coffee/sospenso-partners-defaultpic.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid #705946;
+}
+
+.info-partner-name {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -15px;
+  h3 {
+    color: #705946;
+  }
+}
+.info-partner-desc {
+  padding-left: 10px;
+  padding-right: 10px;
+  p, i {
+    color: rgba(23, 22, 19, .6);
+    font-size: 12px;
+    margin-right: 8px;
+  }
+}
+
+.bref {
+  padding-left: 10px;
+  padding-right: 10px;
+  p {
+    color: #171613;
+    font-size: 12px;
+    margin-right: 8px;
+    text-align: justify;
+  }
+}
+
+.dispo {
+  p{
+    font-size: 14px;
+    color: #171613;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding-right: 10px;
+    font-weight: 700;
+  }
+}
+
+.coffee-status-bis {
+  height: 65px;
+  margin-top: 4px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.coffee-pending-bis {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: row;
+  height: 50px;
+  width: 50px;
+  padding-top: 10px;
+  background-color: rgb(112, 89, 70);
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px rgba(96, 96, 96, .5);
+  // border: 1px solid #00C2B6;
+}
+
+.pending-bis {
+  p {
+    font-size: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+    margin-right: 2px;
+  }
+}
+

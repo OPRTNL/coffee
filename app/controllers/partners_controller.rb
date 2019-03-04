@@ -1,6 +1,7 @@
 class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
-  before_action :set_user
+  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     if params[:city].present?

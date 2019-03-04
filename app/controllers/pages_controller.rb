@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :partner]
+  skip_before_action :authenticate_user!, only: [:home, :partners]
 
   def home
   end
 
-  def partner
+  def partners
   end
 end

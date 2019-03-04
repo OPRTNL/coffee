@@ -1,66 +1,84 @@
 <div class="main-container">
 
-  <div class="title-wrapper">
-    <h1>Les cafés partenaires</h1>
-  </div>
-
-  <div class="map-wrapper">
-    <div id="map" data-markers="<%= @markers.to_json %>">
-    </div>
-  </div>
-
-
   <div class= "second-container">
+
     <div class="partners-list-container">
+
+      <div class="title-wrapper">
+        <h1>Les cafés partenaires</h1>
+      </div>
+
+
       <div class="row">
         <% @partners.each do |partner| %>
-          <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="col-sm-6 col-md-6 col-lg-6">
 
-            <%= link_to partner_path(partner) do %>
+            <a href="#" class="show-toogle" data-partner-id="<%= partner.id %>">
+
               <div class="partner-card">
                 <div class="partner-img">
                 </div>
                 <div class="partner-name">
                   <h3><%= partner.name %></h3>
                 </div>
-                <div class="partner-address">
-                  <p><%= partner.address %><i class="fas fa-map-marker-alt"></i></p>
-                </div>
-                <div class="coffee-status">
-
-                <div class="coffee-pending">
-                  <div class="pending">
-                    <p>7</p>
-                  </div>
-                  <div class="pending-icon">
-                    <i class="fas fa-coffee"></i>
-                  </div>
-                </div>
-
                 <div class="coffee-served">
-                  <div class="served">
-                    <p>45</p>
-                  </div>
+                  <p>45 sospeso déjà distribués ici<i class="fas fa-check"></i></p>
+                </div>
+                <div class="partner-address">
+                  <p><i class="fas fa-map-marker-alt"></i><%= partner.address %></p>
                 </div>
 
-                <div class="more-served">
-                  <div class="more-text">
-                    <p>café(s) déjà servi(s) ici</p>
+                <div class="coffee-status">
+                  <div class="coffee-pending">
+                    <div class="pending">
+                      <p>8</p>
+                    </div>
+                    <div class="pending-icon">
+                      <i class="fas fa-coffee"></i>
+                    </div>
                   </div>
                 </div>
+                <div>
+                  <%#= link_to '<i class="fas fa-search"></i>'.html_safe, partner_path(partner),{ :class=>"partner-btn" } %>
+                </div>
               </div>
-              <div>
-                <%= link_to '<i class="fas fa-search"></i>'.html_safe, partner_path(partner),{ :class=>"partner-btn" } %>
-              </div>
-            <% end %>
-            </div>
+
+            </a>
+
           </div>
         <% end %>
       </div>
-    </div>
-  </div>
 
+    </div>
+
+
+
+
+    <div id="show">
+      <% @partners.each do |partner| %>
+        <div class="info-partner hidden" id="info-partner-<%= partner.id%>" data-partner-id="<%= partner.id %>">
+          <h3><%= partner.name %></h3>
+        </div>
+      <% end %>
+    </div>
+
+
+
+
+
+
+    <div class="map-container">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="map-wrapper">
+          <div id="map" data-markers="<%= @markers.to_json %>">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
 
 <% content_for :after_js do %>
    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">

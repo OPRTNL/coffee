@@ -2,11 +2,14 @@
 
   <div class= "second-container">
 
+<!-- début du html pour lindex des partners -->
+
     <div class="partners-list-container">
 
       <div class="title-wrapper">
         <h1>Les cafés partenaires</h1>
       </div>
+
 
       <div class="row">
         <% @partners.each do |partner| %>
@@ -32,28 +35,56 @@
                     <div class="pending">
                       <p>8</p>
                     </div>
-                    <div class="pending-icon">
-                      <i class="fas fa-coffee"></i>
-                    </div>
+                  </div>
+                  <div class="pending">
+                    <p>8</p>
                   </div>
                 </div>
-                <div>
-                  <%#= link_to '<i class="fas fa-search"></i>'.html_safe, partner_path(partner),{ :class=>"partner-btn" } %>
+                <div class="partner-btn">
+                  <i class="fas fa-search"></i>
                 </div>
               </div>
             </a>
           </div>
         <% end %>
       </div>
+
     </div>
+
+<!-- début du html pour le show du partner -->
 
     <div id="show">
       <% @partners.each do |partner| %>
         <div class="info-partner hidden" id="info-partner-<%= partner.id%>" data-partner-id="<%= partner.id %>">
-          <h3><%= partner.name %></h3>
+
+          <div class="info-partner-img">
+          </div>
+          <div class="info-partner-name">
+            <h3><%= partner.name %></h3>
+          </div>
+          <div class="info-partner-desc">
+            <p><i class="fas fa-map-marker-alt"></i><%= partner.address %></p>
+          </div>
+          <div class="bref">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus magna sit amet lacus mattis varius. Sed at blandit est, sit amet malesuada neque. Duis in molestie libero.</p>
+          </div>
+
+          <div class="coffee-status-bis">
+            <div class="coffee-pending-bis">
+              <div class="pending-bis">
+                <p>8</p>
+              </div>
+            </div>
+            <div class="dispo">
+              <p>Sospesos disponibles chez </br><%= partner.name %></p>
+            </div>
+          </div>
+
         </div>
       <% end %>
     </div>
+
+    <!-- début du html pour la sticky map-->
 
     <div class="map-container">
       <div class="col-sm-12 col-md-12 col-lg-12">

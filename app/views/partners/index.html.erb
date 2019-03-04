@@ -1,15 +1,14 @@
 <div class="main-container">
 
+  <div class="title-wrapper">
+    <h1>Les cafés partenaires</h1>
+  </div>
+
   <div class= "second-container">
 
 <!-- début du html pour lindex des partners -->
 
     <div class="partners-list-container">
-
-      <div class="title-wrapper">
-        <h1>Les cafés partenaires</h1>
-      </div>
-
 
       <div class="row">
         <% @partners.each do |partner| %>
@@ -36,10 +35,11 @@
                       <p>8</p>
                     </div>
                   </div>
-                  <div class="pending">
-                    <p>8</p>
+                  <div class="dispo">
+                    <p>Sospesos déjà distribués</p>
                   </div>
                 </div>
+
                 <div class="partner-btn">
                   <i class="fas fa-search"></i>
                 </div>
@@ -94,7 +94,15 @@
           </div>
 
           <div class="offer">
-            <h3>Offrir un café</h3>
+            <div>
+              <% if partner.products.present? %>
+                <%= form_tag orders_path do %>
+                  <%= hidden_field_tag 'product_id', partner.products.first.id %>
+                  <br>
+                  <%= submit_tag 'Offrir un café', class: 'btn-ghost' %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
 
         </div>

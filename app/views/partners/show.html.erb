@@ -1,4 +1,9 @@
 
+<% if flash[:error] %>
+  <div class="alert alert-danger text-center" id="flash" role="alert"><%= flash[:error] %></div>
+<% end %>
+
+
 <!--- Start banner --->
       <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= photo_path_for(@partner)%>)">
         <div class="container">
@@ -25,7 +30,7 @@
 <h2>Offrir un café</h2>
 
 <ul>
-    <% @products.each do |product| %>
+    <% @partner.products.each do |product| %>
     <li>
       <%= product.name %> - <%= product.price %>
     </li>

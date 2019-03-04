@@ -36,21 +36,19 @@ user_10 = User.create!(first_name: "Charlène", last_name: "Haskis", email: "cha
 
 print "....."
 
-p = 1000
-
-beers.each do |beer|
-  if beer["totalEncas"] < 1
-    coffe = Partner.new(name: beer["nom"], address: beer["adresse"], latitude: beer["latitude"], longitude: beer["longitude"], picture_1: "picture")
-    product = Product.new(name: "café suspendu", price_cents: 150)
-    product.partner = coffe
-  end
-  print "..."
-  if coffe
-    coffe.user = user_10
-    coffe.save
-    product.save
-  end
-end
+# beers.each do |beer|
+#   if beer["totalEncas"] < 1
+#     coffe = Partner.new(name: beer["nom"], address: beer["adresse"], latitude: beer["latitude"], longitude: beer["longitude"], picture_1: "picture")
+#     product = Product.new(name: "café suspendu", price_cents: 150)
+#     product.partner = coffe
+#   end
+#   print "..."
+#   if coffe
+#     coffe.user = user_10
+#     coffe.save
+#     product.save
+#   end
+# end
 
 partner_1 = Partner.new(name: "La Boîte à Café", address: "3 Rue de l'Abbé Rozier, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)
 partner_2 = Partner.new(name: "Rakwé Café", address: "26 Rue René Leynaud, 69001 Lyon", picture_1: "https://res.cloudinary.com/di985lta5/image/upload/v1551104888/adult-architectural-design-architecture-1438445.jpg", picture_2: "https://res.cloudinary.com/di985lta5/image/upload/v1551104901/chef-coffee-cook-887827.jpg", picture_3: "", user_id: 1)

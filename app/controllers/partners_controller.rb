@@ -11,9 +11,9 @@ class PartnersController < ApplicationController
     else
       @partners = Partner.all
     end
+
     set_markers
-    set_orders_status
-    end
+    # set_orders_status
   end
 
   def show
@@ -21,6 +21,7 @@ class PartnersController < ApplicationController
         lng: @partner.longitude,
         lat: @partner.latitude
       }
+
     @products = Product.where(partner: @partner)
   end
 
@@ -39,7 +40,12 @@ class PartnersController < ApplicationController
   end
 
   def edit
-    @partner = Partner.find(params[:id])
+    if @partner.user == current_user
+      set_orders_status
+      @order = @partner.orders.where(:consumed == false).first
+    else
+      redirect_to partner_path(@partner), :flash => { error: "You cant access this coffe" }
+    end
   end
 
   def update
@@ -64,15 +70,16 @@ private
         lat: partner.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { partner: partner }),
       }
+    end
+  end
+
+  def set_partner
+    @partner = Partner.find(params[:id])
   end
 
   def set_orders_status
     @orders_pending = @partner.orders.where(:consumed == false).count
     @orders_total = @partner.orders.all.count
-  end
-
-  def set_partner
-    @partner = Partner.find(params[:id])
   end
 
   def set_user

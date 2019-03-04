@@ -3,6 +3,8 @@
   <div class="container">
     <h1>Sospeso</h1>
     <p>la générosité au quotidien pour une consommation solidaire</p>
+
+<!--- Start searchbar --->
     <div >
       <%= form_tag partners_path, method: :get do %>
         <div id="input-styling-address">
@@ -12,18 +14,8 @@
       <% end %>
 
     </div>
-    <br>
-<!--- Start searchbar --->
-   <!--    <div class="search-button" id=nice-search-button>
-        <form action="" >
-
-          <div id="input-styling-address">
-            <input type="search" id=input-algo>
-          </div>
-
-          <i class="fa fa-search"></i>
-      </div> -->
 <!--- End searchbar --->
+    <br>
 
 <!--- Start Hidden form --->
       <div id=geoloc-form type="hidden">
@@ -49,23 +41,28 @@
 <!--- End banner --->
 
 <!--- Start about coffee --->
-  <div class="container" id=call-to-action>
-    <div>
-    <h2>Offrez un café suspendu</h2>
-    <p>Apportez un peu de réconfort à une personne dans le besoin et participez à la vie de votre quartier. Avec Sospeso repérez autour de vous la liste de tous les établissements qui ont adopté le système. Un geste solidaire pour 2€ chez l'ensemble de nos partenaires.
-    </p>
-    <%= link_to "j'offre un café Sospeso",  partners_path, :class=>"btn btn-ghost" %>
+  <div class="wrapper_call">
+    <div class="container" id=call-to-action>
+     <div>
+      <h2>Offrez un café suspendu</h2>
+      <p>Apportez un peu de réconfort à une personne dans le besoin et participez à la vie de votre quartier. Avec Sospeso repérez autour de vous la liste de tous les établissements qui ont adopté le système. Un geste solidaire pour 2€ chez l'ensemble de nos partenaires.
+      </p>
+      <%= link_to "j'offre un café Sospeso",  partners_path, :class=>"btn btn-ghost" %>
+     </div>
     </div>
   </div>
 
 <!--- End about coffee --->
 
 <!--- Start become partner --->
-  <div class="container" id=become-partner>
-    <div>
-    <h2>Devenez café partenaire</h2>
-    <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec Sospeso repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
-    <%= link_to "Comment ça marche",  new_partner_path, :class=>"btn btn-ghost" %>
+  <div class="wrapper_partner">
+    <div class="container" id=become-partner>
+      <div>
+      <h2>Devenez café partenaire</h2>
+      <p>Avec 2€ vous apportez un peu de réconfort autour de vous et participez à la vie de votre quartier. Avec Sospeso repérez autour de vous la liste de tous les établissements qui ont adopté le système</p>
+      <%= link_to "Comment ça marche",  new_partner_path, :class=>"btn btn-ghost" %>
+      </div>
     </div>
   </div>
+
 <!--- End become partner --->

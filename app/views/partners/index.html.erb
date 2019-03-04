@@ -8,7 +8,6 @@
         <h1>Les cafés partenaires</h1>
       </div>
 
-
       <div class="row">
         <% @partners.each do |partner| %>
           <div class="col-sm-6 col-md-6 col-lg-6">
@@ -42,17 +41,11 @@
                   <%#= link_to '<i class="fas fa-search"></i>'.html_safe, partner_path(partner),{ :class=>"partner-btn" } %>
                 </div>
               </div>
-
             </a>
-
           </div>
         <% end %>
       </div>
-
     </div>
-
-
-
 
     <div id="show">
       <% @partners.each do |partner| %>
@@ -61,11 +54,6 @@
         </div>
       <% end %>
     </div>
-
-
-
-
-
 
     <div class="map-container">
       <div class="col-sm-12 col-md-12 col-lg-12">

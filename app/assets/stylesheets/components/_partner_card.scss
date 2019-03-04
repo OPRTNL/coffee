@@ -20,7 +20,7 @@
   width: 800px;
   height: 100vh;
   // margin-top: 119px;
-  // padding-right: 10px;
+  padding-right: 10px;
   position: sticky;
   top: 10px;
 }
@@ -40,11 +40,28 @@
   padding-left: 15px;
 }
 
+.partner-search-bar {
+  z-index: 10;
+  height: 50px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  margin-right: -5px;
+  margin-left: -5px;
+  padding-left: 15px;
+  padding-top: 10px;
+  position: sticky;
+  top: 1px;
+  background-color: rgba(255,255,255, .9);
+  box-shadow: 1px 1px 2px rgba(96, 96, 96, .5);
+}
+
 .partner-card {
-  background-color: white;
+  background-color: #f2f2f2;
   box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
   height: 250px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-right: -5px;
+  margin-left: -5px;
   position: relative;
 }
 
@@ -66,7 +83,7 @@
     color: #705946;
     border-top: 3px solid #705946;
     font-size: 22px;
-    background-color: white;
+    background-color: #f2f2f2;
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 3px;
@@ -81,7 +98,7 @@
   top: 10px;
   left:0px;
   p{
-    font-size: 9px;
+    font-size: 10px;
     color: white;
     text-align: left;
     padding-right: 20px;
@@ -170,10 +187,10 @@
 
 #show {
   height: 80vh;
-  background-color: #f2f2f2;
+  background-color: white;
   box-shadow: 0px 0px 8px rgba(96, 96, 96, .5);
   // margin-top: 119px;
-  margin-left: 15px;
+  margin-left: 18px;
   position: sticky;
   top: 10px;
   width:0px;
@@ -316,5 +333,8 @@
   h3 {
     font-size: 18px;
     font-weight: 700;
+  }
+  i {
+    margin-right: 10px;
   }
 }

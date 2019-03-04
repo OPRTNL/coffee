@@ -11,13 +11,8 @@ class PartnersController < ApplicationController
     else
       @partners = Partner.all
     end
-
-    @markers = @partners.map do |partner|
-      {
-        lng: partner.longitude,
-        lat: partner.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { partner: partner }),
-      }
+    set_markers
+    set_orders_status
     end
   end
 
@@ -35,8 +30,11 @@ class PartnersController < ApplicationController
 
   def create
     @partner = Partner.new(partner_params)
+    @product = Product.new(name: "café suspendu", price_cents: 150)
     @partner.user = current_user
     @partner.save!
+    @product.partner = @partner
+    @product.save!
     redirect_to partner_path(@partner)
   end
 
@@ -58,6 +56,20 @@ class PartnersController < ApplicationController
   end
 
 private
+
+  def set_markers
+    @markers = @partners.map do |partner|
+      {
+        lng: partner.longitude,
+        lat: partner.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { partner: partner }),
+      }
+  end
+
+  def set_orders_status
+    @orders_pending = @partner.orders.where(:consumed == false).count
+    @orders_total = @partner.orders.all.count
+  end
 
   def set_partner
     @partner = Partner.find(params[:id])

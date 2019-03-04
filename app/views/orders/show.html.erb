@@ -6,7 +6,7 @@
     <h1>Merci pour votre engagement !</h1>
   </div>
   <div class="thank-you-btn">
-    <a><%= link_to 'Retour'.html_safe, partners_path %></a>
+    <a><%= link_to 'Retour'.html_safe, partner_path(@order.product.partner) %></a>
   </div>
   <!--   <ul>
       <li>Status: <%= @order.state %></li>

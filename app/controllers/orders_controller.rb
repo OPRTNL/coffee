@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   def consume
     @order = Order.find(params[:id])
     @order.consume!
-    redirect_to root_path#edit_partner_path(@order.product.partner)
+    redirect_to edit_partner_path(@order.product.partner)
   end
 
   def update

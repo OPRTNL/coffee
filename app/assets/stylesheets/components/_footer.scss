@@ -26,8 +26,13 @@
 .footer-copyright{
    font-size : 16px;
    color: #171613;
+   display: flex;
+   align-items: center;
    a{
     text-decoration: none;
     color: #705946
+   }
+   p{
+    margin: 0 0 0 0;
    }
 }

@@ -1,3 +1,7 @@
+<h2> Vous avez actuellement <%= @orders_pending %> cafés en attente</h2>
+
+  <%= link_to "un café servi", consume_order_path(@order), method: :patch, class: "btn-ghost"  %>
+
   <%= simple_form_for @partner do |f| %>
 
     <% if @partner.errors.any? %>
@@ -32,3 +36,4 @@
   <% end %>
   </div>
 </div>
+

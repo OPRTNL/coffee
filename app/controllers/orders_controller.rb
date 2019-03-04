@@ -10,4 +10,13 @@ class OrdersController < ApplicationController
 
     redirect_to new_order_payment_path(order)
   end
+
+  def consume
+    @order = Order.find(params[:id])
+    @order.consume!
+    redirect_to root_path#edit_partner_path(@order.product.partner)
+  end
+
+  def update
+  end
 end

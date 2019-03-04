@@ -1,1 +1,5 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger text-center" id="flash" role="alert"><%= flash[:error] %></div>
+<% end %>
+
 <%= render 'form', partner: @partner %>

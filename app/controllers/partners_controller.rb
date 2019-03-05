@@ -1,5 +1,5 @@
 class PartnersController < ApplicationController
-  before_action :set_partner, only: [:show, :edit, :update, :destroy]
+  before_action :set_partner, only: [:show, :edit, :update, :destroy, :counter]
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -14,6 +14,11 @@ class PartnersController < ApplicationController
     end
     set_markers
     # set_orders_status
+  end
+
+  def counter
+    set_partner
+    set_orders_status
   end
 
   def show

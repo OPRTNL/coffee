@@ -1,3 +1,4 @@
+
   <%= simple_form_for @partner do |f| %>
 
     <% if @partner.errors.any? %>
@@ -10,39 +11,70 @@
     </div>
   <% end %>
 
-
-<div class="container-partner">
-  <div class="form-partner">
-    <div class="form-intro">
-
 <!--- Start banner --->
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);">
-        <div class="container">
-          <h1>Devenez café partenaire</h1>
-          <p>rejoingnez le mouvement Sospeso</p>
-        </div>
-      </div>
-<!--- End banner --->
-
-<!--- Start form --->
-        <div class="container">
-          <%= f.input :name %>
-          <%= f.input :address %>
-          <%= f.input :description %>
-          <div class="partner-form-container">
-            <div>
-            <p>Photo de profil de votre café</p>
-            <%= cl_image_tag @partner.photo, height: 300, width: 300, crop: :fill %>
-            <%= f.file_field :photo %>
-            </div>
-          </div>
-
-<!--- End form --->
-          <div>
-          <%= f.submit "Rejoindre la communauté des cafés solidaires", class: "btn-ghost" %>
-          </div>
-        <% end %>
-      </div>
+  <div class="banner">
+    <div class="container">
+      <h1>Devenez café partenaire</h1>
+      <br>
+      <p>rejoingnez le mouvement Sospeso</p>
     </div>
   </div>
+<!--- End banner --->
+
+
+<div class="main-form-container">
+
+
+  <!--- Start form --->
+  <div class="form-container">
+    <div>
+      <%= f.input :name, label: "Nom de votre établissement", placeholder: "Le café du coin"  %>
+    </div>
+    <div>
+      <%= f.input :address, label: "Adresse", placeholder: "11 rue des Cyprès, 69007 Lyon" %>
+    </div>
+    <div>
+      <%= f.input :description, label: "Un petit mot sur votre café :", placeholder: "Description" %>
+    </div>
+
+
+
+    <div class="partner-form-container">
+      <div class="partner-imgup">
+        <p>Une photo de votre café</p>
+      </div>
+      <div class="img-picto">
+        <i class="fas fa-camera-retro"></i>
+      </div>
+      <div>
+        <%= f.file_field :photo %>
+      </div>
+      <div class="btn-partner">
+        <%= f.submit "Rejoindre la communauté des cafés solidaires", class: "btn-ghost" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <!--- End form --->
+
+  <!--- Start information --->
+  <div class="info-container">
+    <div class="info-icon">
+      <i class="fas fa-coffee"></i>
+    </div>
+    <div class="info-title">
+      <h3>Vous rejoignez le mouvement Sospeso ?</h3>
+    </div>
+    <div class="info-description">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum ligula vulputate nibh viverra, ut pulvinar ante mattis. Nam varius est massa, id maximus ex vehicula eu. Donec at iaculis tellus. Sed sit amet venenatis purus. Morbi placerat, ex sit amet pulvinar cursus, mi eros aliquam lorem, id tempor diam lacus vel nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque sed ante semper, pulvinar est at, tincidunt libero. Nulla facilisi. Ut condimentum auctor nibh non molestie.
+      </p>
+    </div>
+  </div>
+  <!--- End information --->
+
 </div>
+
+
+

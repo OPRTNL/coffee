@@ -7,17 +7,84 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  // background-color: red;
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
 .info-container {
   background-color: blue;
-  height: 50vh;
-  width: 350px;
+  width: 400px;
 }
 
 .form-container {
-  width: 700px;
+  width: 800px;
+  background-color: white;
+  padding: 40px;
+  box-shadow: 1px 1px 8px rgba(96, 96, 96, .7);
+}
+
+.partner-imgup {
+  p {
+    font-weight: 700;
+    font-size: 25px;
+    color: #705946;
+    margin-top: 35px;
+    margin-bottom: 20px;
+  }
+}
+
+.img-picto {
+  i {
+    font-size: 90px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.form-control-label.string.required {
+  font-size: 25px;
+  color: #705946;
+}
+
+.form-control-label.string.optional {
+  font-size: 25px;
+  color: #705946;
+}
+
+
+input#partner_name {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  height: 45px;
+  border: 1px solid #705946;
+  box-shadow: 1px 1px 4px rgba(96, 96, 96, .4);
+}
+
+
+
+input#partner_address {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  height: 45px;
+  border: 1px solid #705946;
+  box-shadow: 1px 1px 4px rgba(96, 96, 96, .4);
+}
+
+input#partner_description {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  height: 45px;
+  border: 1px solid #705946;
+  box-shadow: 1px 1px 4px rgba(96, 96, 96, .4);
+}
+
+input#partner_photo {
+  margin-left: 15px;
+}
+
+.btn-partner {
+  margin-top: 40px;
 }

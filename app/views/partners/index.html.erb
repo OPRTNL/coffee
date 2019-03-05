@@ -111,6 +111,20 @@
             </div>
           </div>
 
+          <div class="edit-container">
+            <div class="edit-placement">
+              <div>
+                <% if partner.user == current_user %>
+                <div class="edit-text">
+                  <p>Ce café vous appartient !</p>
+                </div>
+                  <%= link_to 'Modifier la fiche', edit_partner_path(partner), :class=>"edit-btn" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       <% end %>
     </div>

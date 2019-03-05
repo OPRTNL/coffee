@@ -1,17 +1,17 @@
 .btn-ghost {
-  color: #45251B;
-  border: 1px solid #45251B;
+  color: black;
+  border: 1px solid black;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 5px;
   font-weight: lighter;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 
 .btn-ghost:hover {
   color: white;
-  background-color: #45251B;
-  border: 1px solid #45251B;
+  background-color: black;
+  border: 1px solid black;
   font-weight: lighter;
 }
 
@@ -22,8 +22,8 @@
 }
 
 .btn-warning:hover{
-  background-color: #45251B;
-  border: 1px solid #45251B;
+  background-color: black;
+  border: 1px solid black;
   opacity: 0.8;
   transition: opacity 0.3s ease;
   font-weight: lighter;

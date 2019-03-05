@@ -1,39 +1,42 @@
-<div class="login-container">
-  <div class="login-card">
+<div class="suscribe-background" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104907/Coffee%20app/background-beverage-breakfast-414645.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class=form-suscribe>
+        <h2>Inscription</h2>
 
-    <h2>S'incrire</h2>
-
-
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-
-      <div class="form-inputs">
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "Prénom", class: "emailstyle" }%>
-        <%= f.input :last_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "Nom", class: "emailstyle" }%>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "E-mail", class: "emailstyle" }%>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+          <div class="form-inputs">
+                <%= f.input :first_name, placeholder: "Prénom",
+                             required: true,
+                             autofocus: true,
+                             input_html: { autocomplete: "Prénom", class: "emailstyle" }%>
+                <%= f.input :last_name, placeholder: "Nom",
+                             required: true,
+                             autofocus: true,
+                             input_html: { autocomplete: "Nom", class: "emailstyle" }%>
+                <%= f.input :email, placeholder: "E-mail",
+                             required: true,
+                             autofocus: true,
+                             input_html: { autocomplete: "E-mail", class: "emailstyle" }%>
+                <%= f.input :password, placeholder: "Mot de passe",
+                             required: true,
+                             hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                             input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
+                <%= f.input :password_confirmation, placeholder: "Confirme ton mot de passe",
+                             required: true,
+                             input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "C'est parti !", class: "btn-ghost" %>
+          </div>
+          <div class="suscribed">
+          <%= render "devise/shared/links" %>
+        <% end %>
+          </div>
+        </div>
       </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "S'inscrire" %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>

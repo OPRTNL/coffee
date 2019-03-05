@@ -1,8 +1,13 @@
 <div class="main-container">
 
-  <div class="title-wrapper">
-    <h1>Les cafés partenaires</h1>
+  <div class="partner-banner">
+    <div class="partner-container">
+      <div class="title-wrapper">
+        <h1>Les cafés partenaires</h1>
+      </div>
+    </div>
   </div>
+
 
   <div class= "second-container">
 
@@ -22,7 +27,7 @@
 
       <div class="row">
         <% @partners.each do |partner| %>
-          <div class="col-sm-6 col-md-6 col-lg-6">
+          <div class="col-sm-12 col-md-12 col-lg-12">
 
             <a href="#" class="show-toogle" data-partner-id="<%= partner.id %>">
 
@@ -32,9 +37,6 @@
                 <div class="partner-name">
                   <h3><%= partner.name %></h3>
                 </div>
-                <div class="coffee-served">
-                  <p>45 Sospesos déjà distribués ici<i class="fas fa-check"></i></p>
-                </div>
                 <div class="partner-address">
                   <p><i class="fas fa-map-marker-alt"></i><%= partner.address %></p>
                 </div>
@@ -42,7 +44,7 @@
                 <div class="coffee-status">
                   <div class="coffee-pending">
                     <div class="pending">
-                      <p>8</p>
+                      <p><%= partner.products.orders.size %></p>
                     </div>
                   </div>
                   <div class="dispo">
@@ -82,7 +84,7 @@
           <div class="coffee-status-bis">
             <div class="coffee-pending-bis">
               <div class="pending-bis">
-                <p>8</p>
+                <p><%= partner.products.orders.size %></p>
               </div>
             </div>
             <div class="dispo">

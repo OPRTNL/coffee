@@ -1,11 +1,20 @@
+.partner-banner {
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-container {
+}
+
 .title-wrapper {
-  padding-top: 70px;
-  padding-bottom: 30px;
-  width: 100%;
-  margin: 0 auto;
   h1 {
     font-size:48px;
-    color: #705946;
+    color: white;
     text-align:center;
     font-weight: 700;
   }
@@ -14,15 +23,16 @@
 .second-container {
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
 }
 
 .map-container {
-  width: 800px;
   height: 100vh;
   margin-top: 10px;
   padding-right: 10px;
   position: sticky;
   top: 10px;
+  flex-grow: 1;
 }
 
 .map-wrapper {
@@ -36,7 +46,7 @@
 }
 
 .partners-list-container {
-  width: 800px;
+  width: 450px;
   padding-left: 20px;
 }
 
@@ -48,7 +58,7 @@
   height: 55px;
   padding-top: 10px;
   border-radius: 0px 0px 30px 30px;
-  background-color:#f2f2f2;
+  background-color:white;
   margin-right: -10px;
   margin-left: -10px;
   margin-bottom: 15px;
@@ -61,7 +71,7 @@
   border-radius: 30px;
   margin-bottom: 20px;
   background-color: rgba(255,255,255, .9);
-  box-shadow: 1px 1px 8px rgba(96, 96, 96, .7);
+  box-shadow: 0px 1px 8px rgba(96, 96, 96, .7);
 }
 
 #input-styling-address {
@@ -72,7 +82,7 @@
 .partner-card {
   background-color: #f2f2f2;
   box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
-  height: 250px;
+  height: 230px;
   margin-bottom: 10px;
   margin-right: -5px;
   margin-left: -5px;
@@ -92,7 +102,7 @@
   z-index:2;
   position: absolute;
   left: 8px;
-  bottom: 70px;
+  bottom: 50px;
   h3 {
     color: #705946;
     border-top: 3px solid #705946;
@@ -112,7 +122,7 @@
   top: 10px;
   left:0px;
   p{
-    font-size: 10px;
+    font-size: 12px;
     color: white;
     text-align: left;
     padding-right: 20px;
@@ -144,7 +154,6 @@
 
 .coffee-status {
   height: 65px;
-  margin-top: 4px;
   padding-left: 15px;
   display: flex;
   flex-direction: row;
@@ -156,8 +165,8 @@
   align-items: center;
   justify-content:center;
   flex-direction: row;
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   padding-top: 10px;
   background-color: rgb(112, 89, 70);
   border-radius: 50%;
@@ -167,7 +176,7 @@
 
 .pending {
   p {
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     color: rgb(255, 255, 255);
@@ -207,14 +216,14 @@
   margin-left: 18px;
   position: sticky;
   top: 10px;
-  width:0px;
-  transition: width .2s linear;
+  width: 0px;
+  @include transition(.2s width ease-in-out);
   // overflow: hidden;
   // 500px
 }
 
 #show.extends {
-  width: 500px;
+  width: 350px;
 }
 
 .info-partner {
@@ -264,7 +273,7 @@
     font-size: 14px;
     color: #171613;
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 8px;
     padding-right: 10px;
     font-weight: 700;
   }

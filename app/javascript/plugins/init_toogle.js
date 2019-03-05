@@ -1,4 +1,10 @@
 const showElem = document.querySelector('#show')
+let focusOnMarker;
+
+const showInfoPartnerElem = (infoPartnerElem) => {
+  infoPartnerElem.classList.remove("hidden")
+  focusOnMarker(infoPartnerElem.dataset.partnerId)
+}
 
 const updateExtend = () => {
   if (document.querySelector('#show .info-partner:not(.hidden)') == null) {
@@ -8,16 +14,16 @@ const updateExtend = () => {
   }
 }
 
-const showInfo = (partnerId) => {
+const toogle = (partnerId) => {
   const infoPartnerElem = document.querySelector(`#info-partner-${partnerId}`)
   const currentDisplay = document.querySelector('#show .info-partner:not(.hidden)')
 
   if (currentDisplay == null) {
-    infoPartnerElem.classList.remove("hidden")
+    showInfoPartnerElem(infoPartnerElem)
   } else {
     currentDisplay.classList.add("hidden")
     if (partnerId != currentDisplay.dataset.partnerId) {
-      infoPartnerElem.classList.remove("hidden")
+      showInfoPartnerElem(infoPartnerElem)
     }
   }
   updateExtend();
@@ -27,11 +33,12 @@ const partnerClick = (e) => {
   e.preventDefault();
   const partnerId = event.currentTarget.dataset.partnerId
 
-  showInfo(partnerId);
+  toogle(partnerId);
 }
 
 
-const initToogle = () => {
+const initToogle = (focusOnMarkerCallback) => {
+  focusOnMarker = focusOnMarkerCallback
   document.querySelectorAll('.show-toogle').forEach((elem) => {
     elem.addEventListener('click', partnerClick)
   })

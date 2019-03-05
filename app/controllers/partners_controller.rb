@@ -4,14 +4,14 @@ class PartnersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # if params[:city].present?
-    #   @partners = Partner.near(params[:city], 15).joins(:products)
-    # elsif params[:lat].present?
-    #   @partners = Partner.near([params[:lat],params[:long]], 15).joins(:products)
-    # else
-    #   @partners = Partner.all.joins(:products)
-    # end
-    @partners = Partner.includes(:products)
+
+    @partners = Partner.all.includes(:products)
+
+    if params[:city].present?
+      @partners = @partners.near(params[:city], 15)
+    elsif params[:lat].present?
+      @partners = @partners.near([params[:lat],params[:long]], 15)
+    end
     set_markers
     # set_orders_status
   end
@@ -70,6 +70,7 @@ private
         lng: partner.longitude,
         lat: partner.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { partner: partner }),
+        partnerId: partner.id,
       }
     end
   end

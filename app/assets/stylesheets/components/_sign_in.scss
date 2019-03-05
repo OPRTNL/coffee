@@ -1,33 +1,56 @@
-.login-container {
-  height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-card {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  background-color: rgba(255, 255, 255, .7);
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(122, 122, 122, .7);
+.form-login {
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   h2 {
-    line-height: 2;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 20px
   }
 }
 
-.emailstyle {
-  height: 40px;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, .9);
+h2{
+  color: white;
+  font-size: 28px;
 }
 
-.form-actions {
-  margin-bottom: 30px;
-  margin-top: 30px;
+.suscribed{
+  padding-bottom: 20px;
+}
+
+.form-suscribe{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.suscribe-background{
+  background-size: cover;
+  background-position: center;
+}
+
+.form-control-label.string.required, .form-control-label.email.required, .form-control-label.password.required{
+  color: transparent;
+  font-size: 16px;
+}
+
+.form-text.text-muted{
+  color: white;
+  font-size: 12px;
+}
+
+.form-group{
+  margin-bottom: 1px;
+}
+
+.form-group.password.required.user_password_confirmation{
+  margin-bottom: 20px;
+  margin-top: -15px;
 }

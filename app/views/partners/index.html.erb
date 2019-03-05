@@ -11,8 +11,12 @@
     <div class="partners-list-container">
 
       <div class="search-bar-container">
-        <div class="partner-search-bar">
-          <p>Search bar</p>
+        <div>
+          <%= form_tag partners_path, method: :get do %>
+            <div id="input-styling-address">
+              <input type="search" id="input-algo" name="city" class="partner-search-bar" placeholder="Cherchez une adresse">
+            </div>
+          <% end %>
         </div>
       </div>
 

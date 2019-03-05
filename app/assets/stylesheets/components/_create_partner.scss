@@ -1,10 +1,23 @@
-.partner-form-container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 40px;
-  margin-bottom: 40px;
+.banner {
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);
 }
 
-#partner-detail{
 
+.main-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  // background-color: red;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.info-container {
+  background-color: blue;
+  height: 50vh;
+  width: 350px;
+}
+
+.form-container {
+  width: 700px;
 }

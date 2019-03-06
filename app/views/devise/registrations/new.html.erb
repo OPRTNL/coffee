@@ -8,31 +8,43 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
           <div class="form-inputs">
+
                 <%= f.input :first_name, placeholder: "Prénom",
                              required: true,
                              autofocus: true,
+                             label: false,
                              input_html: { autocomplete: "Prénom", class: "emailstyle" }%>
+                             <br>
                 <%= f.input :last_name, placeholder: "Nom",
                              required: true,
                              autofocus: true,
+                             label: false,
                              input_html: { autocomplete: "Nom", class: "emailstyle" }%>
+                             <br>
                 <%= f.input :email, placeholder: "E-mail",
                              required: true,
                              autofocus: true,
+                             label: false,
                              input_html: { autocomplete: "E-mail", class: "emailstyle" }%>
+                             <br>
                 <%= f.input :password, placeholder: "Mot de passe",
                              required: true,
+                             label: false,
                              hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
                              input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
+                             <br>
                 <%= f.input :password_confirmation, placeholder: "Confirme ton mot de passe",
                              required: true,
+                             label: false,
                              input_html: { autocomplete: "Mot de passe", class: "emailstyle" } %>
           </div>
           <div class="form-actions">
-            <%= f.button :submit, "C'est parti !", class: "btn-ghost" %>
+            <%= f.button :submit, "c'est parti !", class: "btn-ghost" %>
+
           </div>
           <div class="suscribed">
-          <%= render "devise/shared/links" %>
+          <p>Tu as déjà un compte ? </p>
+          <a <%= render "devise/shared/links" %></a>
         <% end %>
           </div>
         </div>

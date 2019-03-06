@@ -10,6 +10,5 @@ initAutocomplete();
 initLocation();
 initToogle(focusOnMarker);
 window.initMap = initMap
-// appendCounter()
 
 

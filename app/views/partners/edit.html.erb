@@ -1,3 +1,5 @@
+
+
 <!--- Start banner --->
   <div class="banner-edit-partner">
     <div class="">
@@ -7,36 +9,14 @@
     </div>
   </div>
 <!--- End banner --->
+
+<%= simple_form_for @partner do |f| %>
+
 <div class="main-coffee-container">
 
-  <div class="coffee-space">
-    <div class="status-space">
-      <p> Vous avez actuellement <%= @orders_pending %> cafés en attente</p>
-    </div>
-    <div>
-       <% if @order.nil? %>
-      <% else %>
-        <%= link_to "un café servi", consume_order_path(@order), method: :patch, class: "btn-ghost"  %>
-      <% end %>
-
-      <%= link_to "Mon compteur display", counter_partner_path, class: "btn-ghost"  %>
-
-      <%= simple_form_for @partner do |f| %>
-
-        <% if @partner.errors.any? %>
-        <div class="errors-container">
-          <ul>
-            <% @partner.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
   <div class="form-placement">
-    <div class="form-container">
+    <div class="form-partner-container">
+
       <div>
         <%= f.input :name, label: "Nom de votre établissement", placeholder: "Le café du coin"  %>
       </div>
@@ -52,7 +32,7 @@
           <p>Une photo de votre café</p>
         </div>
         <div class="img-picto">
-          <i class="fas fa-camera-retro"></i>
+          <%= cl_image_tag @partner.photo, width: 400, height: 150, crop: :fill %>
         </div>
         <div>
           <%= f.file_field :photo %>
@@ -61,6 +41,42 @@
           <%= f.submit "Mettre à jour les informations", class: "btn-ghost" %>
         </div>
       </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="coffee-space">
+    <div class="status-space">
+      <p> Vous avez actuellement </p>
+      <br>
+      <div class="instant-count">
+      <p><%= @orders_pending %></p>
+      </div>
+      <br>
+      <p>Sospeso(s) en attente</p>
+    </div>
+    <div>
+      <div class="coffee-partner-served">
+        <% if @order.nil? %>
+        <% else %>
+          <%= link_to "1 Sospeso(s) servi", consume_order_path(@order), method: :patch, class: "btn-partner-served" %>
+        <% end %>
+      </div>
+      <div class="coffee-all">
+        <%= link_to "Mon compteur display", counter_partner_path, class: "btn-partner-count"  %>
+      </div>
+
+      <%= simple_form_for @partner do |f| %>
+
+        <% if @partner.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @partner.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

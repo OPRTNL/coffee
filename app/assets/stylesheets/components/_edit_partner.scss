@@ -32,9 +32,79 @@
   background-color: red;
 }
 
+.form-partner-container {
+  width: 600px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 1px 1px 8px rgba(96, 96, 96, .7);
+}
+
+.coffee-space{
+  width: 400px;
+  margin-left: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+}
+
 
 .status-space {
   p {
     font-size: 25px;
+    text-align: center;
   }
+}
+
+.instant-count {
+  p{
+    font-size: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 95px;
+    margin: 0 auto;
+    font-weight: 800;
+    background-color: black;
+    color:white;
+  }
+}
+
+.coffee-partner-served {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+.coffee-all {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-partner-served {
+  color: white;
+  padding: 60px 44px;
+  border-radius: 5px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  background-color: black;
+}
+
+.btn-partner-served:hover {
+  color: grey;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.btn-partner-count {
+  color: grey;
+  padding: 60px 20px;
+  border-radius: 5px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.btn-partner-count:hover {
+  color: white;
+  background-color: black;
 }

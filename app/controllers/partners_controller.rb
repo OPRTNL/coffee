@@ -38,10 +38,14 @@ class PartnersController < ApplicationController
     @partner = Partner.new(partner_params)
     @product = Product.new(name: "café suspendu", price_cents: 150)
     @partner.user = current_user
-    @partner.save!
-    @product.partner = @partner
-    @product.save!
-    redirect_to partner_path(@partner)
+    if @partner.save
+      @product.partner = @partner
+      @product.save
+      redirect_to edit_partner_path(@partner)
+    else
+
+      render :new
+    end
   end
 
   def edit
@@ -50,7 +54,7 @@ class PartnersController < ApplicationController
       @order = @partner.orders.where(consumed: false).first unless @partner.orders.where(consumed: false).first.nil?
       ap @order
     else
-      redirect_to partner_path(@partner), :flash => { error: "You cant access this coffe" }
+      redirect_to partners_path, :flash => { error: "You cant access this coffe" }
     end
   end
 

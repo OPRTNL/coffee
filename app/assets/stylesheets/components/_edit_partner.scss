@@ -1,0 +1,40 @@
+.banner-edit-partner {
+  display: flex;
+  align-items:center;
+  height: 45vh;
+  padding-left: 100px;
+  background-size: cover;
+  background-position: center;
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);
+  h1 {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 50px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    color: white;
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+.main-coffee-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.form-placement {
+  background-color: red;
+}
+
+
+.status-space {
+  p {
+    font-size: 25px;
+  }
+}

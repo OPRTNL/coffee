@@ -36,7 +36,10 @@ function initMap() {
       }
       infowindow.open(map, marker)
       currentOpenedInfoWindow = infowindow
-    })
+
+      const event = new CustomEvent('marker-clicked', { detail: markerData.partnerId });
+      document.dispatchEvent(event);
+    });
   })
 
   if (markerelements.length > 1) {
@@ -62,6 +65,7 @@ const focusOnMarker = (partnerId) => {
   currentMarker = marker
   map.panTo(marker.position)
   map.setZoom(15)
+  console.log(partnerId)
 }
 
 

@@ -18,6 +18,8 @@ const toogle = (partnerId) => {
   const infoPartnerElem = document.querySelector(`#info-partner-${partnerId}`)
   const currentDisplay = document.querySelector('#show .info-partner:not(.hidden)')
 
+  console.log("coucou")
+
   if (currentDisplay == null) {
     showInfoPartnerElem(infoPartnerElem)
   } else {
@@ -44,5 +46,5 @@ const initToogle = (focusOnMarkerCallback) => {
   })
 }
 
-export default initToogle ;
+export { initToogle, toogle }
 

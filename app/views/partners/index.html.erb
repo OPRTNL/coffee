@@ -48,7 +48,7 @@
                     </div>
                   </div>
                   <div class="dispo">
-                    <p>Sospesos disponibles ici</p>
+                    <p>Sospeso(s) disponible(s) ici</p>
                   </div>
                 </div>
 
@@ -88,7 +88,7 @@
               </div>
             </div>
             <div class="dispo">
-              <p>Sospesos disponibles chez </br><%= partner.name %></p>
+              <p>Sospeso(s) disponible(s) chez </br><%= partner.name %></p>
             </div>
           </div>
 
@@ -101,7 +101,7 @@
               </div>
             </div>
             <div class="dispo">
-              <p>Sospesos déjà distribués</p>
+              <p>Sospeso(s) déjà servi(s)</p>
             </div>
           </div>
 
@@ -112,7 +112,7 @@
                   <%= hidden_field_tag 'product_id', partner.products.first.id %>
                   <br>
                   <%= button_tag :submit, class: 'btn-ghost' do %>
-                      <i class="fas fa-coffee"></i>Offir un café
+                      <i class="fas fa-coffee"></i>Offrir un café
                   <% end %>
                 <% end %>
               <% end %>

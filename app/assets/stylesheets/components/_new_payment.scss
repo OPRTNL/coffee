@@ -1,0 +1,110 @@
+.main-payment-container {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  background-image:linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);
+}
+
+.payment-container {
+  z-index:10;
+  background-color: rgba(255,255,255,0.95);
+  width: 400px;
+  border-radius: 20px;
+  padding-bottom: 25px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(96, 96, 96, .6);
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+}
+
+.espace-place {
+  width: 280px;
+  margin: 0 auto;
+  height: 10px;
+  border-bottom: 1px solid rgba(96, 96, 96, .2);
+}
+
+.payment-img {
+  height: 150px;
+  background-image:url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551449644/Coffee/sospenso-partners-defaultpic.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.payment-title {
+  margin-left: 20px;
+  margin-right: 20px;
+  h2 {
+    font-size: 30px;
+    color: #171613;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.payment-description {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.payment-price {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+.fair-price {
+  border: 1px solid #705946;
+  padding-top: 10px;
+  border-radius: 10px;
+  p {
+    font-size: 20px;
+    color: #705946;
+  }
+}
+
+.payment-btn {
+  padding-top: 25px;
+}
+
+

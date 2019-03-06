@@ -1,4 +1,29 @@
-<h1>
+
+<div style="height:500px; padding-top: 200px; padding-left: 200px" >
+
+<h1 id="counter">
 <%= @orders_pending %>
+</h1>
+<h1>
 - Cafés suspendu(s) en attente
 </h1>
+
+<p><%= content_for @orders_pending %></p>
+
+</div>
+
+
+<% content_for :after_js do %>
+  <script>
+      App['partner_counter_#{@partner.id}'] = App.cable.subscriptions.create({
+        channel: 'PartnerCountersChannel',
+        counter_partner_id: <%= @partner.id %>
+      }, {
+        received: (data) => {
+          console.log(data)
+        const count = document.getElementById('counter')
+        count.innerHTML = data.toto
+        }
+      })
+  </script>
+<% end %>

@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
         "partner_counter_#{@order.product.partner.id}",
         toto: @order.product.partner.orders.where(consumed: false).count
       )
+      UserMailer.thank_you(@order.user).deliver_now
       redirect_to edit_partner_path(@order.product.partner)
     end
   end

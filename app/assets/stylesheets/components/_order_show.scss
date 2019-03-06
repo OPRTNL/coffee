@@ -1,22 +1,23 @@
-.order-container{
-  height: 80vh;
-}
-
-.thank-you-img {
-  height : 60vh;
-  background-image: url(https://res.cloudinary.com/dojywbs2z/image/upload/v1551454817/Coffee/undraw_super_thank_you_obwk.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 30%;
-}
-
-.thank-you-description {
-  text-align: center;
+.thank-you-title {
+  padding-top: 80px;
+  padding-right: 30px;
   h1 {
-    color: #171613;
+    font-size: 38px;
+    color: white;
   }
 }
 
-.thank-you-btn {
-  text-align: center;
+.thank-you {
+ a{
+  text-decoration: none;
+  color: black;
+  }
+  padding-right: 30px;
+  padding-bottom: 100px;
+}
+
+.thanks-background{
+  height: calc(100vh - 70px);
+  background-size: cover;
+  background-position: center;
 }

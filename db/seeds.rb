@@ -58,7 +58,7 @@ partner_5 = Partner.new(name: "Le Perko Café", address: "8 Place du Griffon, 69
 partner_6 = Partner.new(name: "Slake", address: "9 Rue de l'Ancienne Préfecture, 69002 Lyon", photo: "http://slake-coffee.com/wp-content/uploads/2017/03/Slake_coffee_house-lyon-89.jpg", description:"Ce café contemporain orné de grandes ardoises sert des boissons et collations dans un espace de partage.", user_id: 3)
 partner_7 = Partner.new(name: "Café Lisboa", address: "9 Rue des Quatre Chapeaux, 69002 Lyon", photo: "https://res.cloudinary.com/di985lta", description:"", user_id: 4)
 partner_8 = Partner.new(name: "Café Vert", address: "1 Montée des Épies, 69005 Lyon", photo: "https://static4.pagesjaunes.fr/media/ugc/cafe_vert_06912300_194247987", description:"Manger sain, éthique et bon dans un cadre agréable à Lyon, ça vous tente ? Si oui, bienvenue au Café Vert ! Cuisine 100% bio, faite maison et vegan", user_id: 5)
-partner_9 = Partner.new(name: "Café Bellecour", address: "33 Place Bellecour, 69002 Lyon", photo: "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/221/150/1545949.jpg", description:"Tables en bois et en marbre, peintures aux murs, grandes fenêtres ouvertes sur la place : Le café Bellecour est un café français ce qu’il y a de plus traditionnel et de plus agréable.
+partner_9 = Partner.new(name: "Café Bellecour", address: "33 Place Bellecour, 69002 Lyon", photo: "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/221/150/1545949.jpg", description:"Tables en bois et en marbre, peintures aux murs, grandes fenêtres ouvertes sur la place : Le café Bellecour est un café français ce qu’il y a de plus traditionnel et de plus agréable.", user_id: 5)
 
 print "............"
 

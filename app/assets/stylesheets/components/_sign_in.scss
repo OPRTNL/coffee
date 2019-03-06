@@ -22,8 +22,26 @@ h2{
   font-size: 28px;
 }
 
+.form-check-label.boolean.optional{
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
 .suscribed{
   padding-bottom: 20px;
+  padding-top: 10px;
+  p{
+    color: white;
+  }
+}
+
+a{
+  color: white;
+  a:hover{
+  color: white;
+  text-decoration: none;
+  }
 }
 
 .form-suscribe{
@@ -34,6 +52,7 @@ h2{
 .suscribe-background{
   background-size: cover;
   background-position: center;
+  height: calc(100vh - 70px);
 }
 
 .form-control-label.string.required, .form-control-label.email.required, .form-control-label.password.required{

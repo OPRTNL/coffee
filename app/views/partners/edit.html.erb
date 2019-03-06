@@ -5,6 +5,8 @@
     <%= link_to "un café servi", consume_order_path(@order), method: :patch, class: "btn-ghost"  %>
   <% end %>
 
+  <%= link_to "Mon compteur display", counter_partner_path, class: "btn-ghost"  %>
+
   <%= simple_form_for @partner do |f| %>
 
     <% if @partner.errors.any? %>

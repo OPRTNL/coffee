@@ -31,12 +31,6 @@ function initMap() {
     markerBounds.extend(new google.maps.LatLng(markerData))
 
     marker.addListener('click', function() {
-      if (currentOpenedInfoWindow != null) {
-        currentOpenedInfoWindow.close()
-      }
-      infowindow.open(map, marker)
-      currentOpenedInfoWindow = infowindow
-
       const event = new CustomEvent('marker-clicked', { detail: markerData.partnerId });
       document.dispatchEvent(event);
     });

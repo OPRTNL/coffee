@@ -1,17 +1,46 @@
-<h1>Offrir un <%= @order.product.name %> chez <%= @order.product.partner.name %></h1>
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Prix solidaire: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+<div class="main-payment-container">
+  <div class="payment-container">
+    <div class="payment-img">
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="J'offre un Café"
-    data-email="<%= current_user.email %>"
-    data-description="Café suspendu chez <%= @order.product.partner.name %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
+    </div>
+    <div class="payment-title">
+      <h2>Offrir un Sospenso <br> chez <%= @order.product.partner.name %></h2>
+      <p><%= @order.product.partner.name %> recevra automatiquement votre participation et mettra à disposition le Sospenso dans son établissement.</p>
+    </div>
+    <!-- div pour créer un espace  -->
+    <div class="espace-place">
+    </div>
+    <!-- div pour créer un espace  -->
+    <div class="payment-description">
+      <%= form_tag order_payments_path(@order) do %>
+      <div class="payment-price">
+        <article>
+          <label class="amount">
+            <p>Prix solidaire :</p>
+            <div class="fair-price">
+              <p>
+                <%= humanized_money_with_symbol(@order.amount) %>
+              </p>
+            </div>
+          </label>
+        </article>
+      </div>
+      <!-- div pour créer un espace  -->
+      <div class="espace-place">
+      </div>
+      <!-- div pour créer un espace  -->
+      <div class="payment-btn">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="J'offre un Café"
+        data-email="<%= current_user.email %>"
+        data-description="Café suspendu chez <%= @order.product.partner.name %>"
+        data-amount="<%= @order.amount_cents %>"
+        data-currency="<%= @order.amount.currency %>"></script>
+      </div>
+    <% end %>
+    </div>
+  </div>
 
-<% end %>
+</div>
+

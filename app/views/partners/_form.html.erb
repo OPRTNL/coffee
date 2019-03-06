@@ -1,16 +1,6 @@
 
   <%= simple_form_for @partner do |f| %>
 
-    <% if @partner.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% @partner.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 <!--- Start banner --->
   <div class="banner-create-partner">
     <div class="">

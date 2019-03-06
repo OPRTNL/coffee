@@ -97,7 +97,7 @@
           <div class="coffee-after">
             <div class="coffee-after-bis">
               <div class="after-bis">
-                <p><%= partner.orders.all.count %></p>
+                <p><%= partner.orders.where(consumed: true).count %></p>
               </div>
             </div>
             <div class="dispo">

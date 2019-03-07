@@ -8,13 +8,16 @@ class OrdersController < ApplicationController
   def consume
     @order = Order.find(params[:id])
     if @order.consume!
+
       ActionCable.server.broadcast(
         "partner_counter_#{@order.product.partner.id}",
         toto: @order.product.partner.orders.where(consumed: false).count
       )
       UserMailer.thank_you(@order.user).deliver_now
-      redirect_to edit_partner_path(@order.product.partner)
+      @partner = @order.product.partner
+      @order = @partner.orders.where(consumed: false).first
     end
+
   end
 
   def update

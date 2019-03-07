@@ -50,17 +50,14 @@
       <p> Vous avez actuellement </p>
       <br>
       <div class="instant-count">
-      <p><%= @orders_pending %></p>
+      <p  id="counter"><%= @orders_pending %></p>
       </div>
       <br>
       <p>Sospeso(s) en attente</p>
     </div>
     <div>
       <div class="coffee-partner-served">
-        <% if @order.nil? %>
-        <% else %>
-          <%= link_to "1 Sospeso(s) servi", consume_order_path(@order), method: :patch, class: "btn-partner-served" %>
-        <% end %>
+        <%= render 'shared/orderbutton', order: @order %>
       </div>
       <div class="coffee-all">
         <%= link_to "Mon compteur display", counter_partner_path, class: "btn-partner-count"  %>
@@ -82,3 +79,19 @@
   </div>
 
 </div>
+<% content_for :after_js do %>
+  <script>
+      App['partner_counter_#{@partner.id}'] = App.cable.subscriptions.create({
+        channel: 'PartnerCountersChannel',
+        counter_partner_id: <%= @partner.id %>
+      }, {
+        received: (data) => {
+          console.log(data)
+        const count = document.getElementById('counter')
+        console.log(count.innerHTML)
+        count.innerHTML = data.toto
+        }
+
+      })
+  </script>
+<% end %>

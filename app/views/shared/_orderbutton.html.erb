@@ -1,0 +1,3 @@
+       <% unless order.nil? %>
+          <%= link_to "1 Sospeso(s) servi", consume_order_path(order), remote: true, method: :patch, class: "btn-partner-served" %>
+        <% end %>

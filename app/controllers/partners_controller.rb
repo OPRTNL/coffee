@@ -9,8 +9,13 @@ class PartnersController < ApplicationController
 
     if params[:city].present?
       @partners = @partners.near(params[:city], 15)
+      cookies.permanent[:city] = params[:city]
     elsif params[:lat].present?
-      @partners = @partners.near([params[:lat],params[:long]], 15)
+      @partners = @partners.near([params[:lat], params[:long]], 15)
+    elsif cookies[:city].present?
+      @partners = @partners.near(cookies[:city], 15)
+    else
+      @partners
     end
     set_markers
     # set_orders_status

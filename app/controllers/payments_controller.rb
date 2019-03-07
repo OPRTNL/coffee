@@ -32,6 +32,11 @@ class PaymentsController < ApplicationController
   private
 
   def set_order
-    @order = current_user.orders.where(state: 'pending').find(params[:order_id])
+    # if current_user.present?
+      @order = current_user.orders.where(state: 'pending').find(params[:order_id])
+    # else
+    #   cookies.permanent[:coucou] = "coucou"
+    #   raise
+    # end
   end
 end

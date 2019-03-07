@@ -41,7 +41,7 @@ class PartnersController < ApplicationController
 
   def create
     @partner = Partner.new(partner_params)
-    @product = Product.new(name: "café suspendu", price_cents: 150)
+    @product = Product.new(name: "café suspendu", price_cents: 200)
     @partner.user = current_user
     if @partner.save
       @product.partner = @partner

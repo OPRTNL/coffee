@@ -1,0 +1,48 @@
+.wrap {
+  background: white;
+}
+
+.flipper {
+  display: inline-block;
+  background: white;
+  border-radius: 10px;
+  font-size: 164px;
+  font-weight: bold;
+  height: 200px;
+  width: 150px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.flip {
+  transform: rotateX(360deg);
+}
+
+.background-counter{
+  background-color: black;
+  height: 100vh;
+}
+
+.counter{
+  display: flex;
+  padding-top: 10%;
+  padding-left:15%;
+  align-items: center;
+  h1{
+    color: white;
+    text-align: center;
+    }
+}
+
+.here{
+  display: flex;
+padding-top: 10%;
+  padding-left:15%;
+  h1{
+    color: white;
+    }
+}

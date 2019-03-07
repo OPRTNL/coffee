@@ -1,11 +1,10 @@
 <div class="main-payment-container">
   <div class="payment-container">
-    <div class="payment-img">
-
+    <div class="payment-img" style="background-image:url('<%= cl_image_path @order.product.partner.photo %>');">
     </div>
     <div class="payment-title">
-      <h2>Offrir un Sospenso <br> chez <%= @order.product.partner.name %></h2>
-      <p><%= @order.product.partner.name %> recevra automatiquement votre participation et mettra à disposition le Sospenso dans son établissement.</p>
+      <h2>Offrir un Sospeso <br> chez <%= @order.product.partner.name %></h2>
+      <p><%= @order.product.partner.name %> recevra automatiquement votre participation et mettra à disposition le Sospeso dans son établissement.</p>
     </div>
     <!-- div pour créer un espace  -->
     <div class="espace-place">

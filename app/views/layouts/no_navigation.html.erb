@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:image" content="https://res.cloudinary.com/dojywbs2z/image/upload/v1551969646/Coffee/sospenso-og-defaultpic.jpg" />
+    <title>Sospenso - trop de love dans ton quartier</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= favicon_link_tag %>
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  </head>
+  <body>
+    <%= render 'shared/flashes' %>
+
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+
+    <%= yield :after_js %>
+  </body>
+</html>

@@ -1,42 +1,50 @@
 <div class="background-counter">
-<div class="container">
+  <div class="container">
+
+<!-- Start counter -->
+      <div class="counter">
+        <div id="tens" class="flipper">
+        <%= (@orders_pending - (@orders_pending % 10))/10 %>
+        </div>
+        <div id="ones" class="flipper"><%= (@orders_pending % 10) %>
+        </div>
+      </div>
+<!-- End counter -->
+
+<!-- Start text counter -->
+  <div>
+
+   </div>
+
+<!-- End text counter -->
+
+  </div>
 </div>
-    <div class="here"><h1>ici</h1></div>
-    <div class="counter">
-      <div id="tens" class="flipper">
-      <%= (@orders_pending - (@orders_pending % 10))/10 %>
-       </div>
-      <div id="ones" class="flipper"><%= (@orders_pending % 10) %></div>
-    </div>
 
-</div>
-</div>
+      <p><%= content_for @orders_pending %></p>
+    <% content_for :after_js do %>
+      <script>
+          App['partner_counter_#{@partner.id}'] = App.cable.subscriptions.create({
+            channel: 'PartnerCountersChannel',
+            counter_partner_id: <%= @partner.id %>
+          }, {
+            received: (data) => {
+              // console.log(data)
+            const count = document.getElementById('counter')
+            const one = (data.toto % 10)
+            const ten = ((data.toto - one)/10)
+            console.log(one)
+            console.log(ten)
+            const ones = document.getElementById('ones')
+            const tens = document.getElementById('tens')
+            console.log(ones.textContent.value)
+            ones.textContent = one
+            tens.textContent = ten
+            }
 
-<p><%= content_for @orders_pending %></p>
-<% content_for :after_js do %>
-  <script>
-      App['partner_counter_#{@partner.id}'] = App.cable.subscriptions.create({
-        channel: 'PartnerCountersChannel',
-        counter_partner_id: <%= @partner.id %>
-      }, {
-        received: (data) => {
-          // console.log(data)
-        const count = document.getElementById('counter')
-        const one = (data.toto % 10)
-        const ten = ((data.toto - one)/10)
-        console.log(one)
-        console.log(ten)
-        const ones = document.getElementById('ones')
-        const tens = document.getElementById('tens')
-        console.log(ones.textContent.value)
-        ones.textContent = one
-        tens.textContent = ten
-        }
-
-      })
-  </script>
-<% end %>
-
+          })
+      </script>
+    <% end %>
 
 <script>
     /* --------------------
@@ -103,6 +111,5 @@
     */
 
     setInterval(count, 1000);
-
 </script>
 

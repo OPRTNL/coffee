@@ -4,41 +4,48 @@
   height: calc(100vh - 70px);
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 42px;
-  font-weight: bold;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90vh;
 }
 
-.banner p {
-  font-size: 20px;
+.container-search {
+  margin-right: 40px;
+}
+
+.search-home{
+  width: 700px;
+  margin-top: 30px;
+}
+
+.home-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.text-banner h1 {
+  margin-top: 15px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text-banner p {
+  font-size: 45px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
 #geoloc-form{
   display: none;
 }
 
-#input-styling-address{
-  width: 500px;
-}
-
-.text-banner{
-  padding-top: 200px;
-  text-align: center;
-}
-
-.search-home{
-width: 400px;
-position: absolute;
-
-}
-
-#geoloc-me-button{
-  position: absolute;
-  padding-left: 50%;
-}

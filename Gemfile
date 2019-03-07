@@ -11,6 +11,7 @@ gem 'redis'
 gem 'geocoder'
 gem 'money-rails'
 gem 'stripe'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

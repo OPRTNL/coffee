@@ -14,10 +14,19 @@
 
 .container-search {
   margin-right: 40px;
+  i {
+    margin-right: 10px;
+  }
+}
+
+.btns-place {
+  i {
+    margin-right: 10px;
+  }
 }
 
 .search-home{
-  width: 700px;
+  width: 800px;
   margin-top: 30px;
 }
 
@@ -49,3 +58,7 @@
   display: none;
 }
 
+.ap-input {
+  height: 50px;
+  border-radius: 20px;
+}

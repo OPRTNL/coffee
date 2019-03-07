@@ -34,8 +34,10 @@
           <%= text_field_tag :long, params[:long], class: "form-control" %>
         <% end %>
       </div>
-      <div>
-        <%= submit_tag 'Voir les partenaires Sospeso autour de moi', class: 'btn-ghost-white', id: 'geolocation-submit' %>
+      <div class="btns-place">
+        <%= button_tag(type: 'submit', class: "btn-offer-coffee", id:"geolocation-submit" ) do %>
+          <i class="fas fa-map-marker-alt"></i> Voir les partenaires Sospeso autour de moi
+        <% end %>
       </div>
     </div>
 

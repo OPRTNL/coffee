@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show] do
     resources :payments, only: [:new, :create]
 
     member do
@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  resources :products, only: [] do
+    member do
+      get :generate_order
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

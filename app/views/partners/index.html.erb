@@ -108,13 +108,12 @@
           <div class="offer">
             <div class="offer-btn">
               <% if partner.products.present? %>
-                <%= form_tag orders_path do %>
-                  <%= hidden_field_tag 'product_id', partner.products.first.id %>
-                  <br>
-                  <%= button_tag :submit, class: 'btn-offer-coffee' do %>
-                      <i class="fas fa-coffee"></i>Offrir un café ici
-                  <% end %>
+
+
+                <%= link_to generate_order_product_path(partner.products.first.id), class: 'btn-offer-coffee' do %>
+                  <i class="fas fa-coffee"></i>Offrir un café ici
                 <% end %>
+
               <% end %>
             </div>
           </div>

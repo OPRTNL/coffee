@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :debug_before
+  after_action  :debug_after
+
   protected
 
   def configure_permitted_parameters
@@ -13,4 +16,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password,
       :password_confirmation, :current_password, :photo, :photo_cache, :remove_photo) }
   end
+
+  def debug_before
+    ap "je suis dans debug_before"
+  end
+
+  def debug_after
+    ap "je suis dans debug_after"
+  end
+
 end

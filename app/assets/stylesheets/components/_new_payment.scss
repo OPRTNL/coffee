@@ -7,7 +7,7 @@
   background-size: cover;
   background-position: center;
   z-index: -1;
-  background-image:linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);
+  background-image:linear-gradient(rgba(0,0,0,0.7),rgba(255,255,255,0.1)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104885/Coffee%20app/adult-bar-business-302902.jpg);
 }
 
 .payment-container {
@@ -17,7 +17,7 @@
   border-radius: 20px;
   padding-bottom: 25px;
   text-align: center;
-  box-shadow: 0px 0px 10px rgba(96, 96, 96, .6);
+  box-shadow: 2px 2px 20px rgba(96, 96, 96, .6);
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1s; /* Firefox < 16 */
         -ms-animation: fadein 1s; /* Internet Explorer */

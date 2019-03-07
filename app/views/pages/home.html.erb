@@ -23,8 +23,10 @@
 
     <div class="home-btns">
       <div class="container-search" id="geoloc-me-button">
-        <%= submit_tag 'Offrir un café', class: 'btn-ghost'%>
+        <%= button_tag(type: 'submit', class: "btn-ghost") do %>
+          <i class="fas fa-coffee"></i> J'offre un Sospeso
         <% end %>
+      <% end %>
       </div>
       <div id="geoloc-form" type="hidden">
         <%= form_tag partners_path, method: :get, class: "form-group" do %>
@@ -33,7 +35,7 @@
         <% end %>
       </div>
       <div>
-        <%= submit_tag 'Voir les partenaires sospeso autour de moi', class: 'btn-ghost-white', id: 'geolocation-submit' %>
+        <%= submit_tag 'Voir les partenaires Sospeso autour de moi', class: 'btn-ghost-white', id: 'geolocation-submit' %>
       </div>
     </div>
 

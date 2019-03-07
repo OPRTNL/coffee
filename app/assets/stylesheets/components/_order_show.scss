@@ -7,6 +7,10 @@
   }
 }
 
+.source{
+
+}
+
 .thank-you {
  a{
   text-decoration: none;
@@ -21,25 +25,3 @@
   background-size: cover;
   background-position: center;
 }
-
-.counter-background{
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-}
-
-#counter{
-  background-color: black;
-  width: 800px;
-  height: 200px;
-  color: white;
-  text-align: center;
-  h1{
-    position: absolute;
-    text-align: center;
-    vertical-align: center;
-    color: white;
-    text-align: center;
-    }
-}
-

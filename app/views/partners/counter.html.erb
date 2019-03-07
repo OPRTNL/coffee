@@ -1,17 +1,18 @@
-<div class="counter-background" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1422207109431-97544339f995?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);">
-
+<div class="background-counter">
 <div class="container">
-<div style="height:500px; padding-top: 200px; padding-left: 200px" >
-
-<h1 id="counter">
-<%= @orders_pending %> - cafés suspendu(s) en attente</h1>
-</h1>
-
-<p><%= content_for @orders_pending %></p>
+</div>
+    <div class="here"><h1>ici</h1></div>
+    <div class="counter">
+      <div id="tens" class="flipper">
+      <%= (@orders_pending - (@orders_pending % 10))/10 %>
+       </div>
+      <div id="ones" class="flipper"><%= (@orders_pending % 10) %></div>
+    </div>
 
 </div>
+</div>
 
-
+<p><%= content_for @orders_pending %></p>
 <% content_for :after_js do %>
   <script>
       App['partner_counter_#{@partner.id}'] = App.cable.subscriptions.create({
@@ -19,12 +20,91 @@
         counter_partner_id: <%= @partner.id %>
       }, {
         received: (data) => {
-          console.log(data)
+          // console.log(data)
         const count = document.getElementById('counter')
+
         count.innerHTML = data.toto
+        const one = (data.toto % 10)
+        const ten = ((data.toto - one)/10)
+        console.log(one)
+        console.log(ten)
+        const ones = document.getElementById('ones')
+        const tens = document.getElementById('tens')
+        console.log(ones.textContent.value)
+        ones.textContent = one
+        tens.textContent = ten
         }
+
       })
   </script>
 <% end %>
-</div>
+
+
+<script>
+    /* --------------------
+     Add your code here
+    --------------------- */
+
+    const ones = document.querySelector('#ones');
+    const tens = document.querySelector('#tens');
+
+    function count() {
+      const date = new Date();
+      const secs = date.getSeconds();
+      // const arrayClock = (secs / 10).toString().split('.');
+
+      // tens.textContent = arrayClock[0];
+      // ones.textContent = arrayClock[1] || 0;
+
+      // why doesn't textContent or innerHTML work here, but innerText does?
+      // I BELIEVE this is because DOMCharacterDataModified is not picking it up?
+      // So let's test this once we get MutationObserver in place!
+      // ...Yuo! That's what it was, and now when using MutationObserver, textContent works
+    }
+
+    function flip(elem) {
+      elem.classList.contains('flip') ? elem.classList.remove('flip') : elem.classList.add('flip');
+    }
+
+    function observeNumbers (mutationsList, observer) {
+      for (let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          flip(mutation.target)
+        }
+      }
+    }
+
+    const obeserveConfig = {
+      attributes: true,
+      childList: true,
+      subtree: true
+    }
+
+    const observer = new MutationObserver(observeNumbers);
+    observer.observe(ones, obeserveConfig)
+    observer.observe(tens, obeserveConfig)
+
+    /*
+    DONT USE DOMCharacterDataModified
+    USE MutationObserver instead!
+
+    ones.addEventListener('DOMCharacterDataModified', (e) => {
+      // console.log(e);
+      // console.log(e.prevValue);
+      // console.log(e.newValue);
+      // console.log(e.target);
+      flip(e.srcElement.parentElement)
+    });
+
+
+    tens.addEventListener('DOMCharacterDataModified', (e) => {
+       if (!e.prevValue === e.newValue) {
+         flip(e.srcElement.parentElement)
+       }
+    });
+    */
+
+    setInterval(count, 1000);
+
+</script>
 

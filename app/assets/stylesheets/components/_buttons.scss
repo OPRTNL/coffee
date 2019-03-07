@@ -5,12 +5,14 @@
   font-weight: lighter;
   opacity: 0.9;
   transition: opacity 0.3s ease;
+  border-color: transparent;
 }
 
 .btn-ghost:hover {
   color: white;
   background-color: black;
   font-weight: lighter;
+  border-color: transparent;
 }
 
 .btn-warning{
@@ -35,8 +37,10 @@
   opacity: 0.9;
   transition: opacity 0.3s ease;
   background-color: black;
+  border-color: transparent;
 }
 
 .btn-ghost-white:hover {
-  color: grey;
+  color: white;
+  border-color: transparent;
 }

@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 70px);
 }
 
 .banner h1 {
@@ -28,11 +28,17 @@
 }
 
 .text-banner{
-  padding-top: 300px;
+  padding-top: 200px;
+  text-align: center;
 }
 
 .search-home{
 width: 400px;
-display: inline-block;
+position: absolute;
 
+}
+
+#geoloc-me-button{
+  position: absolute;
+  padding-left: 50%;
 }

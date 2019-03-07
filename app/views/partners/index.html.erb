@@ -32,7 +32,7 @@
             <a href="#" class="show-toogle" data-partner-id="<%= partner.id %>">
 
               <div class="partner-card">
-                <div class="partner-img" style="background-image: linear-gradient(to left, rgba(71, 71, 71, .1), rgba(71, 71, 71, .3)), url('<%= cl_image_path partner.photo %>'); ">
+                <div class="partner-img" style="background-image: linear-gradient(to left, rgba(71, 71, 71, .2), rgba(71, 71, 71, .4)), url('<%= cl_image_path partner.photo %>'); ">
                 </div>
                 <div class="partner-name">
                   <h3><%= partner.name %></h3>
@@ -111,8 +111,8 @@
                 <%= form_tag orders_path do %>
                   <%= hidden_field_tag 'product_id', partner.products.first.id %>
                   <br>
-                  <%= button_tag :submit, class: 'btn-ghost' do %>
-                      <i class="fas fa-coffee"></i>Offrir un café
+                  <%= button_tag :submit, class: 'btn-offer-coffee' do %>
+                      <i class="fas fa-coffee"></i>Offrir un café ici
                   <% end %>
                 <% end %>
               <% end %>

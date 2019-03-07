@@ -29,6 +29,7 @@
 .map-container {
   height: 100vh;
   margin-top: 10px;
+  margin-left: 5px;
   padding-right: 10px;
   position: sticky;
   top: 10px;
@@ -46,8 +47,8 @@
 }
 
 .partners-list-container {
-  width: 450px;
-  padding-left: 20px;
+  width: 500px;
+  padding-left: 30px;
 }
 
 
@@ -105,7 +106,7 @@
   h3 {
     color: #705946;
     border-top: 3px solid #705946;
-    font-size: 20px;
+    font-size: 25px;
     background-color: #f2f2f2;
     padding-left: 12px;
     padding-right: 12px;
@@ -121,7 +122,7 @@
   top: 10px;
   left:0px;
   p{
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     text-align: left;
     padding-right: 20px;
@@ -129,7 +130,7 @@
       margin-left: 5px;
       margin-right: 5px;
       color: white;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }
@@ -164,8 +165,8 @@
   align-items: center;
   justify-content:center;
   flex-direction: row;
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   padding-top: 10px;
   background-color: rgb(112, 89, 70);
   border-radius: 50%;
@@ -175,7 +176,7 @@
 
 .pending {
   p {
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     color: rgb(255, 255, 255);
@@ -185,13 +186,13 @@
 
 .partner-btn {
   position: absolute;
-  right: 6px;
-  top: 6px;
+  right: 8px;
+  top: 8px;
   background-color: #705946;
   box-shadow: 0px 0px 10px rgba(96, 96, 96, .5);
   border-radius: 50%;
   color: white;
-  font-size: 18px;
+  font-size: 22px;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 1px;
@@ -212,7 +213,7 @@
   background-color: white;
   box-shadow: 0px 0px 8px rgba(96, 96, 96, .5);
   margin-top: 10px;
-  margin-left: 18px;
+  margin-left: 25px;
   position: sticky;
   top: 10px;
   width: 0px;
@@ -222,7 +223,7 @@
 }
 
 #show.extends {
-  width: 350px;
+  width: 400px;
 }
 
 .info-partner {
@@ -244,6 +245,7 @@
   margin-top: -5px;
   h3 {
     color: #705946;
+    font-weight: 600;
   }
 }
 .info-partner-desc {
@@ -251,17 +253,19 @@
   padding-right: 10px;
   p, i {
     color: rgba(23, 22, 19, .6);
-    font-size: 12px;
+    font-size: 14px;
     margin-right: 8px;
+    line-height: 2;
   }
 }
 
 .bref {
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 18px;
   p {
     color: #171613;
-    font-size: 12px;
+    font-size: 15px;
+    line-height: 1.6;
     margin-right: 8px;
     text-align: justify;
   }
@@ -269,19 +273,19 @@
 
 .dispo {
   p{
-    font-size: 14px;
+    font-size: 17px;
     color: #171613;
     margin-left: 10px;
-    margin-top: 8px;
+    margin-top: 10px;
     padding-right: 10px;
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 
 .coffee-status-bis {
   width: 95%;
   height: 65px;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 10px;
   padding-top: 15px;
   display: flex;
@@ -353,12 +357,13 @@
 .offer {
   padding-left: 10px;
   padding-right: 10px;
+  margin-left: 10px;
   h3 {
     font-size: 18px;
     font-weight: 700;
   }
   i {
-    margin-right: 10px;
+    margin-right: 20px;
   }
 }
 

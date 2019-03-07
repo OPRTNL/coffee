@@ -57,7 +57,6 @@ class PartnersController < ApplicationController
     if @partner.user == current_user
       set_orders_status
       @order = @partner.orders.where(consumed: false).first unless @partner.orders.where(consumed: false).first.nil?
-      ap @order
     else
       redirect_to partners_path, :flash => { error: "You cant access this coffe" }
     end

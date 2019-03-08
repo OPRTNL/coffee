@@ -57,7 +57,7 @@ class PartnersController < ApplicationController
   def edit
     if @partner.user == current_user
       set_orders_status
-      @order = @partner.orders.where(consumed: false).first unless @partner.orders.where(consumed: false).first.nil?
+      @order = @partner.orders.where(consumed: false, state: "paid").first unless @partner.orders.where(consumed: false).first.nil?
     else
       redirect_to partners_path, :flash => { error: "You cant access this coffe" }
     end
@@ -94,7 +94,7 @@ private
   end
 
   def set_orders_status
-    @orders_pending = @partner.orders.where(consumed: false).count
+    @orders_pending = @partner.orders.where(consumed: false, state: "paid").count
     @orders_total = @partner.orders.all.count
   end
 

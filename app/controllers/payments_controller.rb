@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
     @order.update(payment: charge.to_json, state: 'paid')
     ActionCable.server.broadcast(
       "partner_counter_#{@order.product.partner.id}",
-      toto: @order.product.partner.orders.where(consumed: false).count
+      toto: @order.product.partner.orders.where(consumed: false, state: 'paid').count
     )
     redirect_to order_path(@order)
 

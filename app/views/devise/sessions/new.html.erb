@@ -1,33 +1,33 @@
 <div class="suscribe-background" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/di985lta5/image/upload/v1551104907/Coffee%20app/background-beverage-breakfast-414645.jpg);">
-  <div class="container">
+  <div class="container-sign-in">
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class=form-suscribe>
 
-    <h2>Se connecter</h2>
+          <h2>Se connecter</h2>
 
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email,
-                    required: false, placeholder: "E-mail",
-                    autofocus: true,
-                    label: false,
-                    input_html: { autocomplete: "email", class: "emailstyle" }%>
-                    <br>
-        <%= f.input :password,
-                    required: false, placeholder: "Mot de passe",
-                    label: false,
-                    input_html: { autocomplete: "Mot de passe",
-                    class: "emailstyle" } %>
-        <%= f.input :remember_me, label: " se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
-      </div>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: false, placeholder: "E-mail",
+                          autofocus: true,
+                          label: false,
+                          input_html: { autocomplete: "email", class: "emailstyle" }%>
+                          <br>
+              <%= f.input :password,
+                          required: false, placeholder: "Mot de passe",
+                          label: false,
+                          input_html: { autocomplete: "Mot de passe",
+                          class: "emailstyle" } %>
+              <%= f.input :remember_me, label: " se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+            </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Se connecter", class: "btn-ghost"%>
-      </div>
-      <% end %>
+            <div class="form-actions">
+              <%= f.button :submit, "Se connecter", class: "btn-ghost"%>
+            </div>
+            <% end %>
 
-      <a<%= render "devise/shared/links" %></a>
+            <a<%= render "devise/shared/links" %></a>
 
         </div>
       </div>

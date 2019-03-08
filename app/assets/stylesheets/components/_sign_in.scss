@@ -17,6 +17,10 @@
   }
 }
 
+.container-sign-in {
+  text-align: center;
+}
+
 h2{
   color: white;
   font-size: 28px;
@@ -37,12 +41,12 @@ h2{
   font-weight: lighter;
 }
 
-.row-left{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 400px;
-}
+// .row-left{
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 400px;
+// }
 
 a{
   color: white;
@@ -54,14 +58,16 @@ a{
 }
 
 .form-suscribe{
-  padding-top: 80px;
-  padding-bottom: 80px;
+  text-align: center;
 }
 
 .suscribe-background{
   background-size: cover;
   background-position: center;
   height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-control-label.string.required, .form-control-label.email.required, .form-control-label.password.required{

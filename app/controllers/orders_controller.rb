@@ -11,11 +11,11 @@ class OrdersController < ApplicationController
 
       ActionCable.server.broadcast(
         "partner_counter_#{@order.product.partner.id}",
-        toto: @order.product.partner.orders.where(consumed: false).count
+        toto: @order.product.partner.orders.where(consumed: false, state: 'paid').count
       )
       UserMailer.thank_you(@order.user).deliver_now
       @partner = @order.product.partner
-      @order = @partner.orders.where(consumed: false).first
+      @order = @partner.orders.where(consumed: false, state: 'paid').first
     end
 
   end

@@ -44,7 +44,7 @@
                 <div class="coffee-status">
                   <div class="coffee-pending">
                     <div class="pending">
-                      <p> <%= partner.orders.where(consumed: false).count %></p>
+                      <p> <%= partner.orders.where(consumed: false, state: 'paid').count %></p>
                     </div>
                   </div>
                   <div class="dispo">
@@ -84,7 +84,7 @@
           <div class="coffee-status-bis">
             <div class="coffee-pending-bis">
               <div class="pending-bis">
-                <p><%= partner.orders.where(consumed: false).count %></p>
+                <p><%= partner.orders.where(consumed: false, state: 'paid').count %></p>
               </div>
             </div>
             <div class="dispo">

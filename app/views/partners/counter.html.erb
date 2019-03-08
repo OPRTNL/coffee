@@ -28,20 +28,25 @@
             counter_partner_id: <%= @partner.id %>
           }, {
             received: (data) => {
-              // console.log(data)
-            const count = document.getElementById('counter')
-            const one = (data.toto % 10)
-            const ten = ((data.toto - one)/10)
-            console.log(one)
-            console.log(ten)
-            const ones = document.getElementById('ones')
-            const tens = document.getElementById('tens')
-            console.log(ones.textContent.value)
-            ones.textContent = one
-            tens.textContent = ten
+                // console.log(data)
+              const count = document.getElementById('counter')
+              const one = (data.toto % 10)
+              const ten = ((data.toto - one)/10)
+              console.log(one)
+              console.log(ten)
+              const ones = document.getElementById('ones')
+              const tens = document.getElementById('tens')
+              console.log(ones.textContent.value)
+              ones.textContent = one
+              tens.textContent = ten
+              playSound();
             }
+          });
 
-          })
+          function playSound() {
+            var snd = new Audio("https://www.myinstants.com/media/sounds/y2mate_HPejngs.mp3");
+              snd.play();
+          }
       </script>
     <% end %>
 

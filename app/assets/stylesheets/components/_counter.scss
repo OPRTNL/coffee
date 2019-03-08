@@ -31,6 +31,7 @@
   background-color: black;
   height: 100vh;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
 }
@@ -50,6 +51,6 @@
   justify-content: center;
   h1{
     color: white;
-    font-size: 40px;
+    font-size: 90px;
     }
 }

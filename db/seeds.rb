@@ -56,7 +56,7 @@ partner_3 = Partner.new(name: "A Chacun Sa Tasse", address: "2 Rue du Griffon, 6
 partner_4 = Partner.new(name: "Diploid", address: "18 Rue de la Platière, 69001 Lyon", remote_photo_url: "https://ookiedough.org/wp-content/uploads/2018/01/DSC07127.jpg", description:"Une cellule « hybride » composée, de cuisiniers/pâtissiers et de baristas tous animés identiquement de la même passion : proposer des plats et des boissons d’excellente qualité, en choisissant rigoureusement des produits locaux et d’une grande fraîcheur.", user_id: 2)
 partner_5 = Partner.new(name: "Le Perko Café", address: "8 Place du Griffon, 69001 Lyon", remote_photo_url: "https://www.leperkocafe.fr/wp-content/uploads/2018/01/2018-01-19_11-57-13__SDX5511_www.xavier-topalian.com_.jpg", description:"Le Perko vous propose un cadre apaisant de bicoque ancienne au fond des bois, pour savourer des cafés fraîchement torréfiés pour la sensualité, des thés pour voyager, des agrumes pressées pour des instants fruités, mais pas seulement...", user_id: 2)
 partner_6 = Partner.new(name: "Slake", address: "9 Rue de l'Ancienne Préfecture, 69002 Lyon", remote_photo_url: "http://slake-coffee.com/wp-content/uploads/2017/03/Slake_coffee_house-lyon-89.jpg", description:"Ce café contemporain orné de grandes ardoises sert des boissons et collations dans un espace de partage.", user_id: 3)
-partner_7 = Partner.new(name: "Café Lisboa", address: "9 Rue des Quatre Chapeaux, 69002 Lyon", remote_photo_url: "https://i0.wp.com/www.carnetlyonnais.com/wp-content/uploads/2018/04/cafe-lisboa-restaurant-portugais-lyon-cordeliers-bonne-adresse-carnet-lyonnais-8.jpg", description:"Le Café Lisboa propose une cuisine portugaise typique dans un cadre convivial à Lyon, pour déjeuner, dîner ou faire une petite pause café / pastel de nata.", user_id: 4)
+# partner_7 = Partner.new(name: "Café Lisboa", address: "9 Rue des Quatre Chapeaux, 69002 Lyon", remote_photo_url: "https://i0.wp.com/www.carnetlyonnais.com/wp-content/uploads/2018/04/cafe-lisboa-restaurant-portugais-lyon-cordeliers-bonne-adresse-carnet-lyonnais-8.jpg", description:"Le Café Lisboa propose une cuisine portugaise typique dans un cadre convivial à Lyon, pour déjeuner, dîner ou faire une petite pause café / pastel de nata.", user_id: 4)
 partner_8 = Partner.new(name: "Café Vert", address: "1 Montée des Épies, 69005 Lyon", remote_photo_url: "https://static4.pagesjaunes.fr/media/ugc/cafe_vert_06912300_194247987", description:"Manger sain, éthique et bon dans un cadre agréable à Lyon, ça vous tente ? Si oui, bienvenue au Café Vert ! Cuisine 100% bio, faite maison et vegan", user_id: 5)
 partner_9 = Partner.new(name: "Café Bellecour", address: "33 Place Bellecour, 69002 Lyon", remote_photo_url: "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/221/150/1545949.jpg", description:"Tables en bois et en marbre, peintures aux murs, grandes fenêtres ouvertes sur la place : Le café Bellecour est un café français ce qu’il y a de plus traditionnel et de plus agréable.", user_id: 5)
 
@@ -68,7 +68,7 @@ partner_3.user = user_3
 partner_4.user = user_4
 partner_5.user = user_5
 partner_6.user = user_6
-partner_7.user = user_7
+# partner_7.user = user_7
 partner_8.user = user_8
 partner_9.user = user_9
 
@@ -78,7 +78,7 @@ product_3 = Product.new(name: "café suspendu", price_cents: 200)
 product_4 = Product.new(name: "café suspendu", price_cents: 200)
 product_5 = Product.new(name: "café suspendu", price_cents: 200)
 product_6 = Product.new(name: "café suspendu", price_cents: 200)
-product_7 = Product.new(name: "café suspendu", price_cents: 200)
+# product_7 = Product.new(name: "café suspendu", price_cents: 200)
 product_8 = Product.new(name: "café suspendu", price_cents: 200)
 product_9 = Product.new(name: "café suspendu", price_cents: 200)
 
@@ -88,7 +88,7 @@ product_3.partner = partner_3
 product_4.partner = partner_4
 product_5.partner = partner_5
 product_6.partner = partner_6
-product_7.partner = partner_7
+# product_7.partner = partner_7
 product_8.partner = partner_8
 product_9.partner = partner_9
 
@@ -98,7 +98,7 @@ product_3.save!
 product_4.save!
 product_5.save!
 product_6.save!
-product_7.save!
+# product_7.save!
 product_8.save!
 product_9.save!
 
@@ -108,7 +108,7 @@ partner_3.save!
 partner_4.save!
 partner_5.save!
 partner_6.save!
-partner_7.save!
+# partner_7.save!
 partner_8.save!
 partner_9.save!
 

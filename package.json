@@ -6,7 +6,7 @@
     "@rails/webpacker": "3.5",
     "bootstrap": "3.4.0",
     "install": "^0.12.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "places.js": "^1.16.1",
     "typed.js": "^2.0.10"
   },

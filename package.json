@@ -4,7 +4,7 @@
   "dependencies": {
     "@google/maps": "^0.5.5",
     "@rails/webpacker": "3.5",
-    "bootstrap": "3.4.0",
+    "bootstrap": "3.4.1",
     "install": "^0.12.2",
     "jquery": "^3.3.1",
     "places.js": "^1.16.1",
